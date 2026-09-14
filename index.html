@@ -1,0 +1,1247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>11 Meses · Valeria</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#08070b;
+    color:#f8f2e9;
+    font-family:"DM Sans",sans-serif;
+    overflow-x:hidden;
+}
+
+/* =========================
+   FONDO GENERAL
+========================= */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    z-index:-3;
+    background:
+        radial-gradient(circle at 50% 30%,rgba(145,105,65,.15),transparent 30%),
+        radial-gradient(circle at 20% 80%,rgba(117,65,85,.12),transparent 30%),
+        radial-gradient(circle at 80% 70%,rgba(180,135,70,.08),transparent 30%),
+        #08070b;
+}
+
+.noise{
+    position:fixed;
+    inset:0;
+    z-index:50;
+    pointer-events:none;
+    opacity:.045;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");
+}
+
+/* =========================
+   PARTICULAS
+========================= */
+
+.particles{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+    z-index:0;
+    overflow:hidden;
+}
+
+.particle{
+    position:absolute;
+    width:2px;
+    height:2px;
+    background:#f4d9a2;
+    border-radius:50%;
+    opacity:.35;
+    animation:float 8s infinite ease-in-out;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(30px);
+        opacity:.1;
+    }
+    50%{
+        transform:translateY(-80px);
+        opacity:.65;
+    }
+}
+
+/* =========================
+   PANTALLAS
+========================= */
+
+.screen{
+    min-height:100svh;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:40px 20px;
+}
+
+.hidden{
+    display:none !important;
+}
+
+/* =========================
+   INTRO
+========================= */
+
+.intro{
+    text-align:center;
+    max-width:700px;
+    z-index:2;
+}
+
+.date{
+    font-family:"Cinzel",serif;
+    font-size:12px;
+    letter-spacing:6px;
+    color:#c9a873;
+    margin-bottom:35px;
+    opacity:.9;
+}
+
+.intro h1{
+    font-family:"Cinzel",serif;
+    font-weight:500;
+    font-size:clamp(42px,10vw,92px);
+    letter-spacing:5px;
+    line-height:1;
+}
+
+.intro h1 span{
+    display:block;
+    color:#d8b77b;
+    font-size:.55em;
+    letter-spacing:9px;
+    margin-top:15px;
+}
+
+.intro .line{
+    width:90px;
+    height:1px;
+    background:#b89561;
+    margin:38px auto;
+    opacity:.6;
+}
+
+.intro p{
+    font-family:"Playfair Display",serif;
+    font-style:italic;
+    font-size:20px;
+    line-height:1.7;
+    color:#d8d0c5;
+}
+
+.enter-btn{
+    margin-top:45px;
+    border:1px solid rgba(211,174,112,.5);
+    background:rgba(255,255,255,.025);
+    color:#ead3a6;
+    padding:16px 32px;
+    border-radius:100px;
+    letter-spacing:4px;
+    font-size:11px;
+    cursor:pointer;
+    transition:.5s;
+}
+
+.enter-btn:hover{
+    background:rgba(205,163,95,.12);
+    border-color:#d7b778;
+    transform:translateY(-3px);
+    box-shadow:0 10px 40px rgba(205,163,95,.12);
+}
+
+/* =========================
+   JARDÍN
+========================= */
+
+.garden-screen{
+    flex-direction:column;
+    min-height:100svh;
+}
+
+.garden-header{
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.small-title{
+    font-family:"Cinzel",serif;
+    font-size:11px;
+    letter-spacing:5px;
+    color:#b99765;
+}
+
+.garden-header h2{
+    margin-top:14px;
+    font-family:"Playfair Display",serif;
+    font-weight:400;
+    font-size:clamp(25px,6vw,42px);
+}
+
+.garden{
+    width:min(600px,90vw);
+    height:min(600px,90vw);
+    position:relative;
+    margin:auto;
+}
+
+.flower{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:130px;
+    height:130px;
+    transform:translate(-50%,-50%);
+    z-index:5;
+}
+
+.flower-core{
+    position:absolute;
+    inset:28px;
+    border-radius:50%;
+    background:
+        radial-gradient(circle,#f1d99e 0%,#b48b52 35%,#4d3825 70%,transparent 71%);
+    box-shadow:
+        0 0 35px rgba(223,182,111,.4),
+        0 0 90px rgba(199,151,76,.15);
+    animation:pulse 4s ease-in-out infinite;
+}
+
+@keyframes pulse{
+    0%,100%{transform:scale(1)}
+    50%{transform:scale(1.08)}
+}
+
+.petal{
+    position:absolute;
+    left:50%;
+    top:50%;
+    width:55px;
+    height:105px;
+    transform-origin:50% 90%;
+    border-radius:70% 70% 45% 45%;
+    background:
+        linear-gradient(145deg,
+        rgba(215,178,115,.8),
+        rgba(99,63,44,.85));
+    border:1px solid rgba(236,203,146,.3);
+    cursor:pointer;
+    transition:.8s cubic-bezier(.2,.8,.2,1);
+    box-shadow:
+        inset 0 0 20px rgba(255,220,160,.08),
+        0 0 15px rgba(180,130,75,.05);
+}
+
+.petal:hover{
+    filter:brightness(1.35);
+    box-shadow:0 0 25px rgba(218,174,99,.25);
+}
+
+.petal.unlocked{
+    background:
+        linear-gradient(145deg,
+        rgba(239,204,145,.95),
+        rgba(121,72,55,.9));
+    box-shadow:0 0 25px rgba(220,170,90,.25);
+}
+
+.petal.opened{
+    opacity:.32;
+}
+
+.petal-number{
+    position:absolute;
+    top:23px;
+    left:50%;
+    transform:translateX(-50%);
+    font-family:"Cinzel",serif;
+    font-size:13px;
+    color:#fff3d6;
+}
+
+/* posições dos 11 pétalos */
+
+.petal:nth-child(1){transform:translate(-50%,-50%) rotate(0deg) translateY(-90px)}
+.petal:nth-child(2){transform:translate(-50%,-50%) rotate(32.7deg) translateY(-90px)}
+.petal:nth-child(3){transform:translate(-50%,-50%) rotate(65.4deg) translateY(-90px)}
+.petal:nth-child(4){transform:translate(-50%,-50%) rotate(98.1deg) translateY(-90px)}
+.petal:nth-child(5){transform:translate(-50%,-50%) rotate(130.8deg) translateY(-90px)}
+.petal:nth-child(6){transform:translate(-50%,-50%) rotate(163.5deg) translateY(-90px)}
+.petal:nth-child(7){transform:translate(-50%,-50%) rotate(196.2deg) translateY(-90px)}
+.petal:nth-child(8){transform:translate(-50%,-50%) rotate(228.9deg) translateY(-90px)}
+.petal:nth-child(9){transform:translate(-50%,-50%) rotate(261.6deg) translateY(-90px)}
+.petal:nth-child(10){transform:translate(-50%,-50%) rotate(294.3deg) translateY(-90px)}
+.petal:nth-child(11){transform:translate(-50%,-50%) rotate(327deg) translateY(-90px)}
+
+.petal.opened:hover{
+    filter:none;
+}
+
+/* =========================
+   FRASE PÉTALO
+========================= */
+
+.petal-message{
+    position:fixed;
+    inset:0;
+    z-index:30;
+    background:rgba(4,3,6,.86);
+    backdrop-filter:blur(12px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:25px;
+}
+
+.message-card{
+    max-width:520px;
+    text-align:center;
+    padding:45px 30px;
+    border:1px solid rgba(212,172,106,.25);
+    background:
+        linear-gradient(145deg,
+        rgba(255,255,255,.05),
+        rgba(255,255,255,.015));
+    box-shadow:0 30px 100px rgba(0,0,0,.5);
+    animation:cardIn .6s ease forwards;
+}
+
+@keyframes cardIn{
+    from{opacity:0;transform:translateY(25px) scale(.96)}
+    to{opacity:1;transform:none}
+}
+
+.message-card .number{
+    font-family:"Cinzel",serif;
+    font-size:12px;
+    letter-spacing:5px;
+    color:#c8a46c;
+}
+
+.message-card h3{
+    font-family:"Playfair Display",serif;
+    font-size:32px;
+    font-weight:400;
+    margin:18px 0 20px;
+}
+
+.message-card p{
+    color:#d4cdc4;
+    line-height:1.8;
+    font-size:16px;
+}
+
+.close{
+    margin-top:30px;
+    background:none;
+    border:1px solid rgba(220,190,140,.35);
+    color:#d9bb86;
+    padding:11px 25px;
+    border-radius:50px;
+    cursor:pointer;
+    letter-spacing:2px;
+    font-size:10px;
+}
+
+/* =========================
+   DECLARACIÓN
+========================= */
+
+.declaration{
+    max-width:780px;
+    text-align:center;
+    padding:50px 20px;
+}
+
+.declaration .eyebrow{
+    color:#b89461;
+    font-family:"Cinzel",serif;
+    font-size:11px;
+    letter-spacing:5px;
+}
+
+.declaration h2{
+    font-family:"Playfair Display",serif;
+    font-weight:400;
+    font-size:clamp(36px,8vw,64px);
+    line-height:1.15;
+    margin:25px 0 35px;
+}
+
+.declaration h2 em{
+    color:#d5ae71;
+}
+
+.declaration p{
+    font-family:"Playfair Display",serif;
+    font-size:18px;
+    line-height:2;
+    color:#d7d0c7;
+    margin-bottom:22px;
+}
+
+.signature{
+    margin-top:45px;
+    color:#cba66d;
+    font-family:"Cinzel",serif;
+    letter-spacing:3px;
+    font-size:12px;
+}
+
+/* =========================
+   CONTADOR
+========================= */
+
+.future{
+    text-align:center;
+    max-width:700px;
+}
+
+.future .number{
+    font-family:"Cinzel",serif;
+    font-size:clamp(100px,30vw,220px);
+    line-height:.8;
+    color:transparent;
+    -webkit-text-stroke:1px rgba(218,177,105,.65);
+    text-shadow:0 0 60px rgba(202,157,78,.12);
+}
+
+.future h2{
+    font-family:"Playfair Display",serif;
+    font-weight:400;
+    font-size:clamp(30px,7vw,50px);
+    margin-top:35px;
+}
+
+.future p{
+    margin-top:20px;
+    font-family:"Playfair Display",serif;
+    font-style:italic;
+    font-size:19px;
+    line-height:1.8;
+    color:#cfc6bb;
+}
+
+/* =========================
+   PREGUNTA FINAL
+========================= */
+
+.final{
+    text-align:center;
+    max-width:650px;
+}
+
+.final .tiny{
+    font-family:"Cinzel",serif;
+    font-size:10px;
+    letter-spacing:6px;
+    color:#b79564;
+}
+
+.final h2{
+    font-family:"Playfair Display",serif;
+    font-weight:400;
+    font-size:clamp(36px,8vw,65px);
+    line-height:1.2;
+    margin:28px 0;
+}
+
+.final h2 span{
+    color:#d6b274;
+}
+
+.final p{
+    font-family:"Playfair Display",serif;
+    font-style:italic;
+    color:#d0c8be;
+    font-size:18px;
+    line-height:1.8;
+}
+
+.yes-btn{
+    margin-top:42px;
+    border:1px solid #b9945e;
+    background:linear-gradient(135deg,rgba(195,149,79,.12),rgba(255,255,255,.03));
+    color:#e8c98e;
+    padding:17px 48px;
+    border-radius:100px;
+    letter-spacing:5px;
+    font-size:11px;
+    cursor:pointer;
+    transition:.5s;
+}
+
+.yes-btn:hover{
+    transform:scale(1.04);
+    box-shadow:0 0 50px rgba(203,158,83,.2);
+}
+
+/* =========================
+   CIERRE
+========================= */
+
+.closing{
+    text-align:center;
+    padding:50px 20px;
+}
+
+.closing .heart{
+    font-size:45px;
+    color:#d4ad70;
+    animation:heartbeat 2s infinite;
+}
+
+@keyframes heartbeat{
+    0%,100%{transform:scale(1)}
+    10%{transform:scale(1.12)}
+    20%{transform:scale(1)}
+}
+
+.closing h2{
+    font-family:"Cinzel",serif;
+    font-weight:400;
+    font-size:clamp(28px,7vw,54px);
+    letter-spacing:3px;
+    margin:28px 0;
+}
+
+.closing p{
+    font-family:"Playfair Display",serif;
+    font-style:italic;
+    font-size:20px;
+    line-height:1.8;
+    color:#d8d0c7;
+}
+
+.names{
+    margin-top:55px;
+}
+
+.names strong{
+    display:block;
+    font-family:"Cinzel",serif;
+    letter-spacing:3px;
+    font-size:12px;
+    margin:8px 0;
+    color:#c7a36d;
+}
+
+.names span{
+    display:block;
+    font-size:10px;
+    letter-spacing:4px;
+    color:#77716a;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:600px){
+
+    .garden{
+        height:390px;
+        width:390px;
+        max-width:95vw;
+    }
+
+    .flower{
+        transform:translate(-50%,-50%) scale(.75);
+    }
+
+    .petal{
+        transform-origin:50% 90%;
+    }
+
+    .garden-header{
+        margin-top:20px;
+    }
+
+    .declaration p{
+        font-size:16px;
+        line-height:1.9;
+    }
+
+    .message-card{
+        padding:35px 23px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="noise"></div>
+
+<div class="particles" id="particles"></div>
+
+<!-- =========================
+     INTRO
+========================= -->
+
+<section class="screen" id="intro">
+
+    <div class="intro">
+
+        <div class="date">
+            17 · SEPTIEMBRE · 2026
+        </div>
+
+        <h1>
+            11
+            <span>MESES</span>
+        </h1>
+
+        <div class="line"></div>
+
+        <p>
+            Hay personas que llegan a tu vida...
+            <br>
+            y hay personas que hacen que tu vida
+            se sienta diferente.
+        </p>
+
+        <button class="enter-btn" onclick="startExperience()">
+            ENTRAR A NUESTRO DÍA
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     JARDÍN DE 11 PÉTALOS
+========================= -->
+
+<section class="screen garden-screen hidden" id="gardenScreen">
+
+    <div class="garden-header">
+
+        <div class="small-title">
+            PARA TI, VALERIA
+        </div>
+
+        <h2>
+            Once formas de seguir eligiéndote
+        </h2>
+
+    </div>
+
+    <div class="garden">
+
+        <div class="flower">
+
+            <div class="flower-core"></div>
+
+            <div class="petal unlocked" data-id="1">
+                <span class="petal-number">I</span>
+            </div>
+
+            <div class="petal unlocked" data-id="2">
+                <span class="petal-number">II</span>
+            </div>
+
+            <div class="petal unlocked" data-id="3">
+                <span class="petal-number">III</span>
+            </div>
+
+            <div class="petal unlocked" data-id="4">
+                <span class="petal-number">IV</span>
+            </div>
+
+            <div class="petal unlocked" data-id="5">
+                <span class="petal-number">V</span>
+            </div>
+
+            <div class="petal unlocked" data-id="6">
+                <span class="petal-number">VI</span>
+            </div>
+
+            <div class="petal unlocked" data-id="7">
+                <span class="petal-number">VII</span>
+            </div>
+
+            <div class="petal unlocked" data-id="8">
+                <span class="petal-number">VIII</span>
+            </div>
+
+            <div class="petal unlocked" data-id="9">
+                <span class="petal-number">IX</span>
+            </div>
+
+            <div class="petal unlocked" data-id="10">
+                <span class="petal-number">X</span>
+            </div>
+
+            <div class="petal unlocked" data-id="11">
+                <span class="petal-number">XI</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <button class="enter-btn" onclick="goToDeclaration()">
+        HE ABIERTO LOS 11
+    </button>
+
+</section>
+
+
+<!-- =========================
+     MENSAJE DE PÉTALO
+========================= -->
+
+<div class="petal-message hidden" id="petalMessage">
+
+    <div class="message-card">
+
+        <div class="number" id="messageNumber">
+            MES I
+        </div>
+
+        <h3 id="messageTitle">
+            Elegirte
+        </h3>
+
+        <p id="messageText">
+            No solamente en los días bonitos.
+            También en esos días sencillos en los que
+            simplemente quiero estar a tu lado.
+        </p>
+
+        <button class="close" onclick="closeMessage()">
+            CERRAR
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     DECLARACIÓN
+========================= -->
+
+<section class="screen hidden" id="declarationScreen">
+
+    <div class="declaration">
+
+        <div class="eyebrow">
+            11 MESES CONTIGO
+        </div>
+
+        <h2>
+            No hice esto para mirar atrás.
+            <br>
+            Lo hice para decirte que
+            <em>quiero seguir.</em>
+        </h2>
+
+        <p>
+            Mi amor, Valeria:
+        </p>
+
+        <p>
+            Hoy llegamos a once meses, y mientras pensaba en
+            qué podía prepararte, entendí algo:
+            no quería hacerte otra página solamente llena
+            de recuerdos.
+        </p>
+
+        <p>
+            Porque nuestro amor no merece vivir solamente
+            de lo que ya pasó.
+        </p>
+
+        <p>
+            Quiero que también tenga espacio para todo aquello
+            que todavía no conocemos, para todas las sonrisas
+            que todavía no nos hemos regalado, para todos los
+            abrazos que todavía nos faltan y para todas esas
+            pequeñas cosas que algún día podremos mirar y decir:
+            “mira todo lo que construimos”.
+        </p>
+
+        <p>
+            Once meses después, sigo sintiendo que todavía
+            tengo muchísimo amor para darte.
+        </p>
+
+        <p>
+            Y eso es precisamente lo que quería regalarte hoy:
+            no una colección de recuerdos,
+            sino una promesa sencilla.
+        </p>
+
+        <p>
+            <strong>
+                Quiero seguir descubriéndote.
+                Quiero seguir cuidándote.
+                Quiero seguir sorprendiéndote.
+                Quiero seguir eligiéndote.
+            </strong>
+        </p>
+
+        <div class="signature">
+            CON TODO MI AMOR
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     365
+========================= -->
+
+<section class="screen hidden" id="futureScreen">
+
+    <div class="future">
+
+        <div class="number">
+            365
+        </div>
+
+        <h2>
+            Días que todavía no hemos vivido.
+        </h2>
+
+        <p>
+            No quiero contar cuánto tiempo nos queda.
+            <br>
+            Quiero hacer que cada día que llegue
+            tenga una razón para ser especial.
+        </p>
+
+        <button class="enter-btn" onclick="goToFinal()">
+            TODAVÍA FALTA ALGO
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     PREGUNTA
+========================= -->
+
+<section class="screen hidden" id="finalScreen">
+
+    <div class="final">
+
+        <div class="tiny">
+            UNA ÚLTIMA COSA
+        </div>
+
+        <h2>
+            Valeria...
+            <br><br>
+            ¿me acompañas hacia
+            <span>nuestro primer año?</span>
+        </h2>
+
+        <p>
+            No porque nuestra historia tenga que ser perfecta,
+            sino porque todavía quiero vivir muchísimo de ella
+            contigo.
+        </p>
+
+        <button class="yes-btn" onclick="sayYes()">
+            SÍ, CONTIGO
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================
+     CIERRE
+========================= -->
+
+<section class="screen hidden" id="closingScreen">
+
+    <div class="closing">
+
+        <div class="heart">
+            ♥
+        </div>
+
+        <h2>
+            Entonces sigamos.
+        </h2>
+
+        <p>
+            Sigamos haciendo que lo nuestro
+            sea ese lugar al que ambos queramos volver.
+        </p>
+
+        <p>
+            Porque once meses no son el final de una historia.
+            <br>
+            Son apenas otra página de todo lo que todavía
+            quiero vivir contigo.
+        </p>
+
+        <div class="names">
+
+            <strong>
+                JUAN KALETH MENDOZA PRIMERA
+            </strong>
+
+            <span>
+                EL AMOR DE TU VIDA
+            </span>
+
+            <br>
+
+            <strong>
+                VALERIA PETRO VILLAZÓN
+            </strong>
+
+            <span>
+                LA ÚNICA MUSA DE ESTA HISTORIA
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* =========================
+   PARTICULAS
+========================= */
+
+const particleContainer =
+    document.getElementById("particles");
+
+for(let i=0;i<55;i++){
+
+    const p=document.createElement("div");
+
+    p.className="particle";
+
+    p.style.left=Math.random()*100+"%";
+    p.style.top=Math.random()*100+"%";
+    p.style.animationDelay=(Math.random()*8)+"s";
+    p.style.animationDuration=(6+Math.random()*8)+"s";
+
+    particleContainer.appendChild(p);
+}
+
+
+/* =========================
+   DATOS DE LOS 11 PÉTALOS
+========================= */
+
+const petals=[
+
+{
+title:"Elegirte",
+text:"No solamente en los días bonitos. También en esos días sencillos en los que simplemente quiero estar a tu lado y hacerte saber que sigues siendo mi persona favorita."
+},
+
+{
+title:"Cuidarte",
+text:"Quiero que cuando estés conmigo sientas que tienes un lugar donde puedes descansar el corazón, sonreír y simplemente ser tú."
+},
+
+{
+title:"Admirarte",
+text:"Hay tantas cosas de ti que admiro, incluso algunas que probablemente tú misma no alcanzas a ver. Y me encanta poder descubrirlas poco a poco."
+},
+
+{
+title:"Hacerte sonreír",
+text:"Si puedo conseguir que uno de tus días sea un poquito más bonito, entonces ya siento que hice algo que valió la pena."
+},
+
+{
+title:"Aprender contigo",
+text:"Todavía hay muchísimo de ti que quiero conocer. Tus gustos, tus sueños, tus pequeñas costumbres y todas esas partes de ti que el tiempo todavía me permitirá descubrir."
+},
+
+{
+title:"Abrazarte",
+text:"Quiero ser también ese abrazo que no necesita demasiadas palabras. Ese lugar donde puedas sentir que por un momento todo está bien."
+},
+
+{
+title:"Celebrarte",
+text:"No quiero celebrar solamente nuestros aniversarios. Quiero celebrar tus logros, tus sonrisas, tus días buenos y hasta esas pequeñas cosas que para otros podrían parecer insignificantes."
+},
+
+{
+title:"Sorprenderte",
+text:"Quiero seguir encontrando maneras inesperadas de recordarte que eres importante para mí. Como esta pequeña locura que estás leyendo ahora."
+},
+
+{
+title:"Crecer contigo",
+text:"No quiero que el tiempo solamente pase sobre nosotros. Quiero que mientras pasa, nosotros también aprendamos, maduremos y construyamos algo cada vez más bonito."
+},
+
+{
+title:"Seguir descubriéndote",
+text:"Once meses después todavía siento curiosidad por ti. Y sinceramente, espero conservarla durante muchísimo tiempo."
+},
+
+{
+title:"Amarte",
+text:"Y al final de todas las palabras siempre queda esto: te amo. No como una frase bonita para cerrar una página, sino como algo que quiero seguir demostrando con el tiempo."
+}
+
+];
+
+
+/* =========================
+   ABRIR EXPERIENCIA
+========================= */
+
+function startExperience(){
+
+    document.getElementById("intro")
+    .classList.add("hidden");
+
+    document.getElementById("gardenScreen")
+    .classList.remove("hidden");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+
+/* =========================
+   PÉTALOS
+========================= */
+
+document.querySelectorAll(".petal").forEach(petal=>{
+
+    petal.addEventListener("click",()=>{
+
+        const id=
+            Number(petal.dataset.id)-1;
+
+        document.getElementById("messageNumber")
+        .textContent=
+        "MES "+
+        ["I","II","III","IV","V","VI","VII","VIII","IX","X","XI"][id];
+
+        document.getElementById("messageTitle")
+        .textContent=
+        petals[id].title;
+
+        document.getElementById("messageText")
+        .textContent=
+        petals[id].text;
+
+        document.getElementById("petalMessage")
+        .classList.remove("hidden");
+
+        petal.classList.add("opened");
+
+    });
+
+});
+
+
+function closeMessage(){
+
+    document.getElementById("petalMessage")
+    .classList.add("hidden");
+
+}
+
+
+/* =========================
+   DECLARACIÓN
+========================= */
+
+function goToDeclaration(){
+
+    document.getElementById("gardenScreen")
+    .classList.add("hidden");
+
+    document.getElementById("declarationScreen")
+    .classList.remove("hidden");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+
+}
+
+
+/* =========================
+   FUTURO
+========================= */
+
+let declarationViewed=false;
+
+window.addEventListener("scroll",()=>{
+
+    if(!document
+        .getElementById("declarationScreen")
+        .classList.contains("hidden")){
+
+        const bottom=
+            window.innerHeight+
+            window.scrollY;
+
+        const height=
+            document.documentElement.scrollHeight;
+
+        if(height-bottom<100 && !declarationViewed){
+
+            declarationViewed=true;
+
+            setTimeout(()=>{
+
+                document.getElementById("declarationScreen")
+                .classList.add("hidden");
+
+                document.getElementById("futureScreen")
+                .classList.remove("hidden");
+
+                window.scrollTo(0,0);
+
+            },700);
+
+        }
+
+    }
+
+});
+
+
+/* =========================
+   FINAL
+========================= */
+
+function goToFinal(){
+
+    document.getElementById("futureScreen")
+    .classList.add("hidden");
+
+    document.getElementById("finalScreen")
+    .classList.remove("hidden");
+
+    window.scrollTo(0,0);
+
+}
+
+
+/* =========================
+   SÍ
+========================= */
+
+function sayYes(){
+
+    document.getElementById("finalScreen")
+    .classList.add("hidden");
+
+    document.getElementById("closingScreen")
+    .classList.remove("hidden");
+
+    createHearts();
+
+    window.scrollTo(0,0);
+
+}
+
+
+/* =========================
+   CORAZONES FINALES
+========================= */
+
+function createHearts(){
+
+    for(let i=0;i<25;i++){
+
+        const heart=document.createElement("div");
+
+        heart.innerHTML="♥";
+
+        heart.style.position="fixed";
+        heart.style.left=Math.random()*100+"%";
+        heart.style.bottom="-20px";
+        heart.style.color="#d8b475";
+        heart.style.fontSize=(10+Math.random()*18)+"px";
+        heart.style.opacity=.7;
+        heart.style.zIndex=40;
+        heart.style.pointerEvents="none";
+
+        document.body.appendChild(heart);
+
+        const duration=
+            3500+
+            Math.random()*3500;
+
+        heart.animate(
+        [
+            {
+                transform:"translateY(0) scale(.6)",
+                opacity:0
+            },
+            {
+                transform:
+                "translateY(-50vh) scale(1)",
+                opacity:.8
+            },
+            {
+                transform:
+                "translateY(-110vh) scale(.2)",
+                opacity:0
+            }
+        ],
+        {
+            duration:duration,
+            easing:"ease-out"
+        });
+
+        setTimeout(()=>{
+            heart.remove();
+        },duration);
+
+    }
+
+}
+
+</script>
+
+</body>
+  </html>
