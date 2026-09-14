@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <meta name="theme-color" content="#050407">
 <title>11 · Once veces te elegiría</title>
 
@@ -20,6 +20,7 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
 }
 
 html{
@@ -35,7 +36,13 @@ body{
 
 button{
     font-family:inherit;
+    -webkit-appearance:none;
 }
+
+button:focus{
+    outline:none;
+}
+
 
 /* =========================================================
    VARIABLES
@@ -49,6 +56,7 @@ button{
     --muted:#9c938a;
     --dark:#030306;
 }
+
 
 /* =========================================================
    FILM GRAIN
@@ -77,6 +85,7 @@ button{
     100%{transform:translate(-2%,-2%)}
 }
 
+
 /* =========================================================
    BACKGROUND
 ========================================================= */
@@ -86,6 +95,7 @@ button{
     inset:0;
     z-index:-20;
     overflow:hidden;
+
     background:
         radial-gradient(
             circle at 50% 45%,
@@ -134,6 +144,7 @@ button{
     }
 }
 
+
 /* =========================================================
    PARTICLES
 ========================================================= */
@@ -153,6 +164,7 @@ button{
     border-radius:50%;
     background:#e6c78d;
     opacity:0;
+
     animation:
         drift var(--duration)
         var(--delay)
@@ -184,6 +196,7 @@ button{
     }
 }
 
+
 /* =========================================================
    INTRO
 ========================================================= */
@@ -193,10 +206,13 @@ button{
     inset:0;
     z-index:5000;
     background:#020205;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     text-align:center;
+
     transition:
         opacity 2s ease,
         visibility 2s ease;
@@ -218,6 +234,7 @@ button{
     letter-spacing:8px;
     color:#aa8a5b;
     opacity:0;
+
     animation:fadeIn 1.8s .5s forwards;
 }
 
@@ -225,11 +242,15 @@ button{
     font-family:"Cinzel",serif;
     font-size:clamp(150px,36vw,330px);
     line-height:.72;
+
     color:transparent;
+
     -webkit-text-stroke:
         1px rgba(222,185,119,.65);
+
     opacity:0;
     transform:scale(.8);
+
     animation:
         numberAppear 2.4s .8s
         cubic-bezier(.16,.8,.2,1)
@@ -238,12 +259,17 @@ button{
 
 .intro-word{
     margin-top:45px;
+
     font-family:"Playfair Display",serif;
     font-size:clamp(26px,6vw,48px);
     font-style:italic;
+
     color:#e9dece;
+
     opacity:0;
-    animation:fadeIn 2s 1.8s forwards;
+
+    animation:
+        fadeIn 2s 1.8s forwards;
 }
 
 .intro-rule{
@@ -251,7 +277,9 @@ button{
     height:1px;
     background:var(--gold);
     margin:35px auto;
-    animation:ruleIn 1.5s 2.5s forwards;
+
+    animation:
+        ruleIn 1.5s 2.5s forwards;
 }
 
 .intro-date{
@@ -259,28 +287,45 @@ button{
     color:#716960;
     letter-spacing:6px;
     font-size:9px;
+
     opacity:0;
-    animation:fadeIn 1.5s 2.8s forwards;
+
+    animation:
+        fadeIn 1.5s 2.8s forwards;
 }
 
 .intro-start{
     margin-top:45px;
+
     border:1px solid rgba(215,180,119,.4);
+
     background:rgba(255,255,255,.02);
+
     color:#dfc18b;
+
     padding:17px 40px;
+
     border-radius:100px;
+
     letter-spacing:5px;
     font-size:9px;
+
     cursor:pointer;
+
     opacity:0;
-    animation:fadeIn 1.5s 3.3s forwards;
+
+    animation:
+        fadeIn 1.5s 3.3s forwards;
+
     transition:.6s;
 }
 
 .intro-start:hover{
     transform:translateY(-4px);
-    background:rgba(215,180,119,.08);
+
+    background:
+        rgba(215,180,119,.08);
+
     box-shadow:
         0 0 60px rgba(215,180,119,.13);
 }
@@ -300,6 +345,7 @@ button{
     to{width:110px}
 }
 
+
 /* =========================================================
    SCENES
 ========================================================= */
@@ -307,10 +353,13 @@ button{
 .scene{
     min-height:100svh;
     width:100%;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     position:relative;
+
     padding:70px 20px;
 }
 
@@ -318,20 +367,26 @@ button{
     display:none !important;
 }
 
+
 /* =========================================================
-   TOP CINEMATIC BAR
+   TOP BAR
 ========================================================= */
 
 .topbar{
     position:fixed;
+
     top:0;
     left:0;
     right:0;
+
     z-index:100;
+
     padding:18px 22px;
+
     display:flex;
     justify-content:space-between;
     align-items:center;
+
     pointer-events:none;
 }
 
@@ -346,6 +401,7 @@ button{
 .topbar-right{
     color:#b28e5d;
 }
+
 
 /* =========================================================
    HERO
@@ -377,27 +433,44 @@ button{
 
 .hero-sub{
     max-width:600px;
-    margin:30px auto 0;
+
+    margin:
+        30px auto 0;
+
     font-family:"Playfair Display",serif;
     font-style:italic;
+
     font-size:19px;
     line-height:1.8;
+
     color:#bdb4aa;
 }
 
 .scroll-hint{
     margin-top:60px;
+
     font-family:"Cinzel",serif;
     color:#655e58;
+
     letter-spacing:5px;
     font-size:8px;
-    animation:hint 2s infinite;
+
+    animation:
+        hint 2s infinite;
 }
 
 @keyframes hint{
-    0%,100%{opacity:.35;transform:translateY(0)}
-    50%{opacity:.9;transform:translateY(8px)}
+    0%,100%{
+        opacity:.35;
+        transform:translateY(0);
+    }
+
+    50%{
+        opacity:.9;
+        transform:translateY(8px);
+    }
 }
+
 
 /* =========================================================
    FLOWER SCENE
@@ -410,9 +483,12 @@ button{
 
 .flower-intro{
     text-align:center;
+
     max-width:700px;
+
     position:relative;
-    z-index:20;
+
+    z-index:30;
 }
 
 .eyebrow{
@@ -424,36 +500,51 @@ button{
 
 .flower-intro h2{
     margin-top:20px;
+
     font-family:"Playfair Display",serif;
     font-weight:400;
-    font-size:clamp(32px,7vw,58px);
+
+    font-size:
+        clamp(32px,7vw,58px);
 }
 
 .flower-intro p{
     margin-top:15px;
+
     font-size:13px;
     color:#817970;
 }
 
+
 /* =========================================================
-   FLOWER
+   FLOWER STAGE
 ========================================================= */
 
 .flower-stage{
     width:min(650px,98vw);
     height:min(650px,98vw);
+
     position:relative;
+
     margin-top:15px;
+
+    isolation:isolate;
 }
 
 .halo{
     position:absolute;
+
     left:50%;
     top:50%;
+
     width:330px;
     height:330px;
-    transform:translate(-50%,-50%);
+
+    transform:
+        translate(-50%,-50%);
+
     border-radius:50%;
+
     background:
         radial-gradient(
             circle,
@@ -461,20 +552,36 @@ button{
             rgba(123,65,61,.07) 40%,
             transparent 70%
         );
+
     filter:blur(3px);
-    animation:haloPulse 5s infinite ease-in-out;
+
+    animation:
+        haloPulse 5s infinite ease-in-out;
+
+    pointer-events:none;
+
+    z-index:1;
 }
 
 @keyframes haloPulse{
+
     0%,100%{
-        transform:translate(-50%,-50%) scale(.8);
+        transform:
+            translate(-50%,-50%)
+            scale(.8);
+
         opacity:.5;
     }
+
     50%{
-        transform:translate(-50%,-50%) scale(1.2);
+        transform:
+            translate(-50%,-50%)
+            scale(1.2);
+
         opacity:1;
     }
 }
+
 
 /* =========================================================
    CORE
@@ -482,13 +589,19 @@ button{
 
 .core{
     position:absolute;
+
     left:50%;
     top:50%;
+
     width:135px;
     height:135px;
-    transform:translate(-50%,-50%);
+
+    transform:
+        translate(-50%,-50%);
+
     border-radius:50%;
-    z-index:20;
+
+    z-index:5;
 
     background:
         radial-gradient(
@@ -504,34 +617,57 @@ button{
         0 0 35px rgba(225,181,106,.35),
         0 0 120px rgba(198,137,74,.18);
 
-    animation:coreBeat 3.5s infinite ease-in-out;
+    animation:
+        coreBeat 3.5s infinite ease-in-out;
+
+    pointer-events:none;
 }
 
 .core::before,
 .core::after{
     content:"";
+
     position:absolute;
+
     inset:-20px;
+
     border-radius:50%;
+
     border:1px solid rgba(218,177,108,.15);
-    animation:coreRing 4s infinite ease-out;
+
+    animation:
+        coreRing 4s infinite ease-out;
 }
 
 .core::after{
     inset:-45px;
-    animation-delay:1.5s;
+
+    animation-delay:
+        1.5s;
 }
 
 @keyframes coreBeat{
-    0%,100%{transform:translate(-50%,-50%) scale(1)}
-    50%{transform:translate(-50%,-50%) scale(1.08)}
+
+    0%,100%{
+        transform:
+            translate(-50%,-50%)
+            scale(1);
+    }
+
+    50%{
+        transform:
+            translate(-50%,-50%)
+            scale(1.08);
+    }
 }
 
 @keyframes coreRing{
+
     0%{
         transform:scale(.7);
         opacity:.5;
     }
+
     100%{
         transform:scale(1.25);
         opacity:0;
@@ -540,49 +676,115 @@ button{
 
 .core-label{
     position:absolute;
+
     inset:0;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     font-family:"Cinzel",serif;
+
     font-size:12px;
     letter-spacing:3px;
+
     color:#fff0cf;
 }
 
+
 /* =========================================================
-   PETALS
+   PETALS — NUEVA GEOMETRÍA TÁCTIL
 ========================================================= */
 
 .petals{
     position:absolute;
+
     inset:0;
+
+    z-index:10;
+
+    pointer-events:none;
 }
+
+
+/*
+   IMPORTANTE:
+   Cada pétalo ahora se coloca en una circunferencia.
+   Ya no depende de un transform-origin compartido.
+   Esto evita que las áreas táctiles se monten unas
+   encima de otras en pantallas pequeñas.
+*/
 
 .petal{
     position:absolute;
+
     left:50%;
     top:50%;
+
     width:70px;
     height:145px;
-    margin-left:-35px;
-    margin-top:-125px;
-    transform-origin:50% 125px;
+
+    margin:0;
+
+    /*
+       El centro del botón se coloca a una distancia
+       fija del centro.
+    */
+
+    transform:
+        translate(-50%,-50%)
+        rotate(var(--angle))
+        translateY(-178px);
+
     cursor:pointer;
+
     z-index:10;
+
+    border:0;
+    background:transparent;
+
+    padding:0;
+
+    pointer-events:auto;
+
+    touch-action:manipulation;
+
     transition:
-        transform 1s
+        transform .75s
         cubic-bezier(.15,.8,.2,1),
-        opacity .6s,
+        opacity .5s,
         filter .5s;
+
+    /*
+       Evita que el navegador intente interpretar
+       el toque como scroll.
+    */
+
+    -webkit-user-select:none;
+    user-select:none;
 }
 
+
+/*
+   ÁREA VISUAL
+*/
+
 .petal-inner{
-    height:100%;
-    width:100%;
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:70px;
+    height:145px;
+
+    transform:
+        translate(-50%,-50%);
+
     border-radius:
         70% 70% 48% 48%
-        / 70% 70% 30% 30%;
+        /
+        70% 70% 30% 30%;
 
     background:
         radial-gradient(
@@ -592,53 +794,127 @@ button{
             rgba(66,39,45,.95) 75%
         );
 
-    border:1px solid rgba(238,204,143,.24);
+    border:
+        1px solid rgba(238,204,143,.24);
 
     box-shadow:
         inset 0 0 30px rgba(255,227,177,.08),
         0 0 20px rgba(198,144,80,.08);
 
     display:flex;
+
     justify-content:center;
+
     padding-top:24px;
 
-    transition:.7s;
+    pointer-events:none;
+
+    transition:.6s;
 }
 
-.petal:hover{
-    filter:brightness(1.35);
-}
 
-.petal:hover .petal-inner{
-    box-shadow:
-        0 0 40px rgba(221,175,95,.25),
-        inset 0 0 30px rgba(255,230,180,.12);
-}
+/*
+   ÁREA TÁCTIL INVISIBLE.
+   Es ligeramente mayor que el pétalo visual,
+   pero sigue separada de los demás.
+*/
 
-.petal.opened{
-    opacity:.3;
-    filter:saturate(.5);
+.petal::before{
+    content:"";
+
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:76px;
+    height:118px;
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:transparent;
+
+    pointer-events:auto;
 }
 
 .petal-number{
     font-family:"Cinzel",serif;
+
     color:#f8deb0;
+
     font-size:10px;
+
+    position:relative;
+
+    z-index:2;
 }
 
-/* circular placement */
+.petal:hover .petal-inner,
+.petal:active .petal-inner{
 
-.petal:nth-child(1){transform:rotate(0deg)}
-.petal:nth-child(2){transform:rotate(32.72deg)}
-.petal:nth-child(3){transform:rotate(65.45deg)}
-.petal:nth-child(4){transform:rotate(98.18deg)}
-.petal:nth-child(5){transform:rotate(130.9deg)}
-.petal:nth-child(6){transform:rotate(163.63deg)}
-.petal:nth-child(7){transform:rotate(196.36deg)}
-.petal:nth-child(8){transform:rotate(229.09deg)}
-.petal:nth-child(9){transform:rotate(261.81deg)}
-.petal:nth-child(10){transform:rotate(294.54deg)}
-.petal:nth-child(11){transform:rotate(327.27deg)}
+    box-shadow:
+        0 0 40px rgba(221,175,95,.25),
+        inset 0 0 30px rgba(255,230,180,.12);
+
+    filter:brightness(1.25);
+}
+
+.petal.opened{
+    opacity:.38;
+}
+
+
+/*
+   11 ÁNGULOS
+*/
+
+.petal:nth-child(1){
+    --angle:0deg;
+}
+
+.petal:nth-child(2){
+    --angle:32.727deg;
+}
+
+.petal:nth-child(3){
+    --angle:65.454deg;
+}
+
+.petal:nth-child(4){
+    --angle:98.181deg;
+}
+
+.petal:nth-child(5){
+    --angle:130.908deg;
+}
+
+.petal:nth-child(6){
+    --angle:163.635deg;
+}
+
+.petal:nth-child(7){
+    --angle:196.362deg;
+}
+
+.petal:nth-child(8){
+    --angle:229.089deg;
+}
+
+.petal:nth-child(9){
+    --angle:261.816deg;
+}
+
+.petal:nth-child(10){
+    --angle:294.543deg;
+}
+
+.petal:nth-child(11){
+    --angle:327.270deg;
+}
+
 
 /* =========================================================
    PROGRESS
@@ -646,26 +922,36 @@ button{
 
 .progress{
     display:flex;
+
     justify-content:center;
+
     gap:7px;
+
     margin-top:-10px;
+
     position:relative;
+
     z-index:30;
 }
 
 .progress span{
     width:5px;
     height:5px;
+
     border-radius:50%;
+
     background:#3b3632;
+
     transition:.6s;
 }
 
 .progress span.active{
     background:#d9b777;
+
     box-shadow:
         0 0 12px rgba(217,183,119,.7);
 }
+
 
 /* =========================================================
    PETAL OVERLAY
@@ -673,11 +959,16 @@ button{
 
 .overlay{
     position:fixed;
+
     inset:0;
+
     z-index:1000;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
+
     padding:25px;
 
     background:
@@ -690,7 +981,9 @@ button{
     backdrop-filter:blur(20px);
 
     opacity:0;
+
     visibility:hidden;
+
     transition:.8s;
 }
 
@@ -701,10 +994,13 @@ button{
 
 .modal{
     width:min(650px,95vw);
+
     text-align:center;
+
     transform:
         translateY(40px)
         scale(.92);
+
     transition:
         .9s
         cubic-bezier(.16,.8,.2,1);
@@ -717,14 +1013,18 @@ button{
 .modal-symbol{
     width:80px;
     height:80px;
+
     border-radius:50%;
+
     margin:auto;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
-    border:1px solid rgba(215,180,119,.25);
+    border:
+        1px solid rgba(215,180,119,.25);
 
     box-shadow:
         0 0 50px rgba(215,180,119,.08);
@@ -732,42 +1032,66 @@ button{
 
 .modal-symbol span{
     font-family:"Cinzel",serif;
+
     color:#dfbd7e;
+
     font-size:11px;
 }
 
 .modal-number{
     margin-top:28px;
+
     font-family:"Cinzel",serif;
+
     color:#a88a5c;
+
     font-size:9px;
+
     letter-spacing:5px;
 }
 
 .modal h2{
     margin:18px 0 25px;
+
     font-family:"Playfair Display",serif;
-    font-size:clamp(38px,9vw,65px);
+
+    font-size:
+        clamp(38px,9vw,65px);
+
     font-weight:400;
 }
 
 .modal p{
     font-family:"Playfair Display",serif;
+
     font-size:18px;
+
     line-height:1.9;
+
     color:#cfc5ba;
 }
 
 .modal-close{
     margin-top:35px;
+
     background:none;
-    border:1px solid rgba(215,180,119,.3);
+
+    border:
+        1px solid rgba(215,180,119,.3);
+
     color:#d4b47d;
+
     border-radius:100px;
+
     padding:12px 28px;
+
     letter-spacing:3px;
+
     font-size:9px;
+
+    cursor:pointer;
 }
+
 
 /* =========================================================
    CINEMATIC TEXT
@@ -775,13 +1099,18 @@ button{
 
 .cinematic{
     text-align:center;
+
     max-width:850px;
 }
 
 .cinematic .big{
     font-family:"Playfair Display",serif;
-    font-size:clamp(43px,9vw,82px);
+
+    font-size:
+        clamp(43px,9vw,82px);
+
     line-height:1.08;
+
     font-weight:400;
 }
 
@@ -791,32 +1120,53 @@ button{
 
 .cinematic p{
     max-width:650px;
+
     margin:30px auto 0;
+
     font-family:"Playfair Display",serif;
+
     font-style:italic;
+
     color:#bdb3a9;
+
     font-size:19px;
+
     line-height:1.9;
 }
 
 .continue{
     margin-top:45px;
-    border:1px solid rgba(215,180,119,.35);
-    background:rgba(255,255,255,.02);
+
+    border:
+        1px solid rgba(215,180,119,.35);
+
+    background:
+        rgba(255,255,255,.02);
+
     color:#dbbc84;
+
     padding:16px 35px;
+
     border-radius:100px;
+
     letter-spacing:4px;
+
     font-size:9px;
+
     cursor:pointer;
+
     transition:.5s;
+
+    touch-action:manipulation;
 }
 
 .continue:hover{
     transform:translateY(-4px);
+
     box-shadow:
         0 0 55px rgba(215,180,119,.12);
 }
+
 
 /* =========================================================
    FUTURE DREAMS
@@ -824,53 +1174,79 @@ button{
 
 .future-list{
     margin:55px auto 0;
+
     width:min(700px,94vw);
+
     display:grid;
-    grid-template-columns:repeat(2,1fr);
+
+    grid-template-columns:
+        repeat(2,1fr);
+
     gap:15px;
 }
 
 .future-card{
     min-height:130px;
+
     padding:25px 20px;
-    border:1px solid rgba(215,180,119,.12);
+
+    border:
+        1px solid rgba(215,180,119,.12);
+
     background:
         linear-gradient(
             145deg,
             rgba(255,255,255,.035),
             rgba(255,255,255,.008)
         );
+
     display:flex;
+
     flex-direction:column;
+
     align-items:center;
     justify-content:center;
+
     text-align:center;
+
     transition:.6s;
 }
 
 .future-card:hover{
     transform:translateY(-5px);
-    border-color:rgba(215,180,119,.3);
-    background:rgba(215,180,119,.04);
+
+    border-color:
+        rgba(215,180,119,.3);
+
+    background:
+        rgba(215,180,119,.04);
 }
 
 .future-card span{
     color:#d4ae70;
+
     font-family:"Cinzel",serif;
+
     font-size:10px;
+
     letter-spacing:2px;
 }
 
 .future-card p{
     margin-top:10px;
+
     font-family:"Playfair Display",serif;
+
     color:#c8beb4;
+
     font-size:15px;
+
     line-height:1.5;
 }
 
+
 /* =========================================================
-   ENVELOPE
+   ENVELOPE — RECONSTRUIDO
 ========================================================= */
 
 .envelope-scene{
@@ -878,108 +1254,369 @@ button{
 }
 
 .envelope{
-    width:min(360px,85vw);
-    height:250px;
-    margin:45px auto 0;
+    width:min(390px,88vw);
+
+    height:300px;
+
+    margin:
+        50px auto 0;
+
     position:relative;
+
     cursor:pointer;
-    perspective:1000px;
+
+    perspective:1200px;
+
+    isolation:isolate;
+
+    touch-action:manipulation;
 }
+
+
+/*
+   Base del sobre
+*/
 
 .envelope-back{
     position:absolute;
+
     inset:0;
+
+    z-index:1;
+
     background:
         linear-gradient(
             145deg,
-            #342126,
-            #171015
+            #3a242b,
+            #181015
         );
-    border:1px solid rgba(215,180,119,.2);
+
+    border:
+        1px solid rgba(215,180,119,.22);
+
     box-shadow:
-        0 30px 80px rgba(0,0,0,.45);
+        0 30px 80px rgba(0,0,0,.55);
+
+    overflow:hidden;
 }
 
-.envelope-flap{
+
+/*
+   Triángulo decorativo inferior izquierdo
+*/
+
+.envelope-back::before{
+    content:"";
+
     position:absolute;
+
     left:0;
-    top:0;
+    bottom:0;
+
     width:0;
     height:0;
-    border-left:180px solid transparent;
-    border-right:180px solid transparent;
-    border-top:130px solid #53333a;
-    transform-origin:top center;
-    transition:
-        transform 1s
-        cubic-bezier(.16,.8,.2,1);
-    z-index:5;
+
+    border-left:
+        195px solid #2a191f;
+
+    border-top:
+        150px solid transparent;
 }
 
-.envelope.open .envelope-flap{
-    transform:rotateX(180deg);
+
+/*
+   Triángulo decorativo inferior derecho
+*/
+
+.envelope-back::after{
+    content:"";
+
+    position:absolute;
+
+    right:0;
+    bottom:0;
+
+    width:0;
+    height:0;
+
+    border-right:
+        195px solid #24161c;
+
+    border-top:
+        150px solid transparent;
 }
+
+
+/*
+   CARTA
+   Queda encima del cuerpo del sobre.
+*/
 
 .envelope-letter{
     position:absolute;
-    left:12%;
-    right:12%;
-    bottom:15px;
-    height:190px;
-    background:#e9dcc7;
+
+    left:8%;
+    right:8%;
+
+    bottom:18px;
+
+    min-height:220px;
+
+    background:
+        linear-gradient(
+            145deg,
+            #f2e7d3,
+            #e6d7bf
+        );
+
     color:#31251e;
-    padding:28px 20px;
-    z-index:2;
+
+    padding:
+        30px 27px 28px;
+
+    z-index:4;
+
+    border:
+        1px solid rgba(91,64,42,.15);
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,.28);
+
+    transform:
+        translateY(0);
+
     transition:
-        transform 1.2s
-        cubic-bezier(.16,.8,.2,1);
+        transform 1.25s
+        cubic-bezier(.16,.8,.2,1),
+        box-shadow 1s;
+
+    /*
+       Cerrada: solo asoma una pequeña parte.
+    */
+
+    clip-path:
+        inset(150px 0 0 0);
 }
 
+
+/*
+   Cuando abre:
+   la carta sale completamente.
+*/
+
 .envelope.open .envelope-letter{
-    transform:translateY(-120px);
+
+    transform:
+        translateY(-155px);
+
+    clip-path:
+        inset(0 0 0 0);
+
+    box-shadow:
+        0 35px 80px rgba(0,0,0,.5);
 }
+
+
+/*
+   TITULO DE LA CARTA
+*/
 
 .envelope-letter h3{
     font-family:"Cinzel",serif;
+
     font-size:12px;
+
     letter-spacing:2px;
+
+    color:#674c3d;
 }
 
+
+/*
+   TEXTO
+*/
+
 .envelope-letter p{
-    margin-top:15px;
+    margin-top:18px;
+
     font-family:"Playfair Display",serif;
+
     font-style:italic;
-    font-size:13px;
-    line-height:1.6;
+
+    font-size:15px;
+
+    line-height:1.75;
+
+    color:#46362d;
 }
+
+.envelope-letter p:last-child{
+    margin-top:22px;
+
+    font-size:17px;
+
+    color:#68454a;
+}
+
+
+/*
+   SOLAPA
+*/
+
+.envelope-flap{
+    position:absolute;
+
+    left:0;
+    top:0;
+
+    width:0;
+    height:0;
+
+    border-left:
+        195px solid transparent;
+
+    border-right:
+        195px solid transparent;
+
+    border-top:
+        145px solid #59363e;
+
+    transform-origin:
+        top center;
+
+    transform:
+        rotateX(0deg);
+
+    transition:
+        transform 1.1s
+        cubic-bezier(.16,.8,.2,1);
+
+    z-index:6;
+
+    filter:
+        drop-shadow(
+            0 5px 8px rgba(0,0,0,.2)
+        );
+
+    pointer-events:none;
+}
+
+
+/*
+   AL ABRIR:
+   la solapa gira y pasa detrás de la carta.
+*/
+
+.envelope.open .envelope-flap{
+
+    transform:
+        rotateX(180deg);
+
+    z-index:2;
+}
+
+
+/*
+   BORDE DECORATIVO DE LA SOLAPA
+*/
+
+.envelope-flap::after{
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+    height:1px;
+
+    background:
+        rgba(235,202,142,.12);
+
+    left:-150px;
+    top:-2px;
+}
+
+
+/*
+   SELLO
+*/
 
 .seal{
     position:absolute;
+
     left:50%;
     top:50%;
-    transform:translate(-50%,-50%);
-    width:60px;
-    height:60px;
+
+    transform:
+        translate(-50%,-50%);
+
+    width:64px;
+    height:64px;
+
     border-radius:50%;
-    background:#7c424b;
-    border:3px solid #4d2931;
+
+    background:
+        radial-gradient(
+            circle at 35% 30%,
+            #a76570,
+            #733e48 55%,
+            #512c34
+        );
+
+    border:
+        3px solid #4d2931;
+
     box-shadow:
-        0 5px 20px rgba(0,0,0,.35);
+        0 5px 25px rgba(0,0,0,.45),
+        0 0 25px rgba(170,101,91,.15);
+
     z-index:10;
+
     display:flex;
+
     align-items:center;
     justify-content:center;
+
     color:#edcf98;
-    font-size:20px;
-    transition:.5s;
+
+    font-size:21px;
+
+    transition:
+        opacity .5s,
+        transform .6s;
 }
 
 .envelope.open .seal{
     opacity:0;
+
     transform:
         translate(-50%,-50%)
-        scale(.5);
+        scale(.4);
 }
+
+
+/*
+   TEXTO DE "TOCA PARA ABRIR"
+*/
+
+.envelope-hint{
+    margin-top:22px;
+
+    font-family:"Cinzel",serif;
+
+    font-size:8px;
+
+    letter-spacing:4px;
+
+    color:#7d7168;
+
+    transition:
+        opacity .5s;
+}
+
+.envelope.open + .envelope-hint{
+    opacity:0;
+}
+
 
 /* =========================================================
    365
@@ -991,30 +1628,48 @@ button{
 
 .big365{
     font-family:"Cinzel",serif;
-    font-size:clamp(150px,38vw,330px);
+
+    font-size:
+        clamp(150px,38vw,330px);
+
     line-height:.75;
+
     color:transparent;
-    -webkit-text-stroke:1px rgba(215,180,119,.55);
+
+    -webkit-text-stroke:
+        1px rgba(215,180,119,.55);
+
     text-shadow:
         0 0 80px rgba(215,180,119,.1);
 }
 
 .number-scene h2{
     margin-top:55px;
+
     font-family:"Playfair Display",serif;
-    font-size:clamp(31px,7vw,58px);
+
+    font-size:
+        clamp(31px,7vw,58px);
+
     font-weight:400;
 }
 
 .number-scene p{
     max-width:600px;
+
     margin:25px auto 0;
+
     font-family:"Playfair Display",serif;
+
     font-style:italic;
+
     color:#bcb2a8;
+
     font-size:18px;
+
     line-height:1.9;
 }
+
 
 /* =========================================================
    PROMISE
@@ -1022,13 +1677,18 @@ button{
 
 .promise{
     max-width:850px;
+
     text-align:center;
 }
 
 .promise h2{
     font-family:"Playfair Display",serif;
-    font-size:clamp(42px,9vw,75px);
+
+    font-size:
+        clamp(42px,9vw,75px);
+
     font-weight:400;
+
     line-height:1.1;
 }
 
@@ -1042,15 +1702,20 @@ button{
 
 .promise-line{
     margin:18px 0;
+
     font-family:"Playfair Display",serif;
+
     font-size:18px;
+
     color:#c5bbb1;
 }
 
 .promise-line strong{
     color:#ead2a4;
+
     font-weight:400;
 }
+
 
 /* =========================================================
    QUESTION
@@ -1058,21 +1723,30 @@ button{
 
 .question{
     text-align:center;
+
     max-width:800px;
 }
 
 .question-small{
     font-family:"Cinzel",serif;
+
     font-size:9px;
+
     letter-spacing:7px;
+
     color:#ad8c5c;
 }
 
 .question h2{
     margin:35px 0;
+
     font-family:"Playfair Display",serif;
-    font-size:clamp(43px,9vw,80px);
+
+    font-size:
+        clamp(43px,9vw,80px);
+
     font-weight:400;
+
     line-height:1.08;
 }
 
@@ -1082,40 +1756,64 @@ button{
 
 .question p{
     max-width:600px;
+
     margin:auto;
+
     font-family:"Playfair Display",serif;
+
     font-style:italic;
+
     color:#bcb3aa;
+
     font-size:18px;
+
     line-height:1.9;
 }
 
 .answers{
     margin-top:50px;
+
     display:flex;
+
     justify-content:center;
+
     gap:15px;
+
     flex-wrap:wrap;
 }
 
 .answer{
     padding:17px 30px;
-    border:1px solid rgba(215,180,119,.35);
-    background:rgba(255,255,255,.02);
+
+    border:
+        1px solid rgba(215,180,119,.35);
+
+    background:
+        rgba(255,255,255,.02);
+
     color:#dfbf88;
+
     border-radius:100px;
+
     letter-spacing:3px;
+
     font-size:9px;
+
     cursor:pointer;
+
     transition:.6s;
 }
 
 .answer:hover{
     transform:translateY(-5px);
-    background:rgba(215,180,119,.08);
+
+    background:
+        rgba(215,180,119,.08);
+
     box-shadow:
         0 0 55px rgba(215,180,119,.13);
 }
+
 
 /* =========================================================
    FINAL
@@ -1127,24 +1825,32 @@ button{
 
 .final-aura{
     position:absolute;
+
     width:400px;
     height:400px;
+
     border-radius:50%;
+
     background:
         radial-gradient(
             circle,
             rgba(213,170,98,.16),
             transparent 65%
         );
+
     filter:blur(15px);
-    animation:finalAura 5s infinite;
+
+    animation:
+        finalAura 5s infinite;
 }
 
 @keyframes finalAura{
+
     0%,100%{
         transform:scale(.8);
         opacity:.4;
     }
+
     50%{
         transform:scale(1.2);
         opacity:1;
@@ -1153,17 +1859,22 @@ button{
 
 .final-content{
     position:relative;
+
     z-index:2;
+
     max-width:750px;
 }
 
 .final-heart{
     width:120px;
     height:120px;
+
     border-radius:50%;
+
     margin:auto;
 
     display:flex;
+
     align-items:center;
     justify-content:center;
 
@@ -1186,33 +1897,49 @@ button{
 
 .final-heart::after{
     content:"♥";
+
     font-size:45px;
+
     color:#fff0d1;
 }
 
 @keyframes finalHeart{
+
     0%,100%{
         transform:scale(1);
     }
+
     50%{
         transform:scale(1.1);
     }
 }
 
 .final-content h2{
-    margin:50px 0 25px;
+    margin:
+        50px 0 25px;
+
     font-family:"Playfair Display",serif;
+
     font-weight:400;
-    font-size:clamp(43px,9vw,75px);
+
+    font-size:
+        clamp(43px,9vw,75px);
 }
 
 .final-content p{
     max-width:650px;
-    margin:0 auto 20px;
+
+    margin:
+        0 auto 20px;
+
     font-family:"Playfair Display",serif;
+
     font-style:italic;
+
     font-size:19px;
+
     line-height:1.9;
+
     color:#c9c0b7;
 }
 
@@ -1222,19 +1949,28 @@ button{
 
 .final-names strong{
     display:block;
+
     font-family:"Cinzel",serif;
+
     color:#c9a56b;
+
     letter-spacing:4px;
+
     font-size:10px;
+
     margin:8px 0;
 }
 
 .final-names span{
     display:block;
+
     color:#67615c;
+
     font-size:8px;
+
     letter-spacing:4px;
 }
+
 
 /* =========================================================
    MOBILE
@@ -1246,9 +1982,16 @@ button{
         padding:15px;
     }
 
+
+    /* -------------------------
+       FLOWER
+    ------------------------- */
+
     .flower-stage{
-        height:410px;
+
         width:410px;
+        height:410px;
+
         max-width:100vw;
     }
 
@@ -1262,17 +2005,45 @@ button{
         height:230px;
     }
 
+
+    /*
+       En móvil los pétalos están
+       suficientemente separados.
+    */
+
     .petal{
-        width:54px;
-        height:110px;
-        margin-left:-27px;
-        margin-top:-95px;
-        transform-origin:50% 95px;
+
+        width:58px;
+        height:112px;
+
+        transform:
+            translate(-50%,-50%)
+            rotate(var(--angle))
+            translateY(-132px);
+    }
+
+    .petal-inner{
+
+        width:58px;
+        height:112px;
+
+        padding-top:20px;
+    }
+
+    .petal::before{
+
+        width:70px;
+        height:108px;
     }
 
     .petal-number{
         font-size:8px;
     }
+
+
+    /* -------------------------
+       FUTURO
+    ------------------------- */
 
     .future-list{
         grid-template-columns:1fr;
@@ -1282,19 +2053,188 @@ button{
         min-height:100px;
     }
 
+
+    /* -------------------------
+       SOBRE
+    ------------------------- */
+
     .envelope{
-        transform:scale(.82);
+
+        width:
+            min(360px,88vw);
+
+        height:275px;
+
+        margin-top:40px;
+    }
+
+    .envelope-flap{
+
+        border-left-width:
+            calc(min(360px,88vw) / 2);
+
+        border-right-width:
+            calc(min(360px,88vw) / 2);
+
+        border-top-width:
+            132px;
+    }
+
+    .envelope-back::before{
+
+        border-left-width:
+            calc(min(360px,88vw) / 2);
+    }
+
+    .envelope-back::after{
+
+        border-right-width:
+            calc(min(360px,88vw) / 2);
+    }
+
+    .envelope-letter{
+
+        left:7%;
+        right:7%;
+
+        min-height:210px;
+
+        padding:
+            28px 22px;
+
+        clip-path:
+            inset(138px 0 0 0);
+    }
+
+    .envelope.open .envelope-letter{
+
+        transform:
+            translateY(-145px);
+
+        clip-path:
+            inset(0 0 0 0);
+    }
+
+    .envelope-letter p{
+
+        font-size:14px;
+
+        line-height:1.7;
+    }
+
+    .envelope-letter p:last-child{
+
+        font-size:16px;
+
+        margin-top:18px;
+    }
+
+    .seal{
+
+        width:58px;
+        height:58px;
+
+        font-size:19px;
+    }
+
+    .envelope-hint{
+
+        margin-top:18px;
+
+        font-size:7px;
+
+        letter-spacing:3px;
+    }
+
+
+    /* -------------------------
+       MODAL
+    ------------------------- */
+
+    .modal{
+
+        width:
+            min(92vw,500px);
     }
 
     .modal p{
+
         font-size:16px;
+
+        line-height:1.8;
     }
+
+
+    /* -------------------------
+       PROMISE
+    ------------------------- */
 
     .promise-line{
         font-size:16px;
     }
 
+
+    /* -------------------------
+       FINAL
+    ------------------------- */
+
+    .final-content{
+        padding:
+            20px 5px;
+    }
+
 }
+
+
+/* =========================================================
+   PANTALLAS MUY PEQUEÑAS
+========================================================= */
+
+@media(max-width:380px){
+
+    .flower-stage{
+
+        width:350px;
+        height:350px;
+    }
+
+    .petal{
+
+        width:50px;
+        height:98px;
+
+        transform:
+            translate(-50%,-50%)
+            rotate(var(--angle))
+            translateY(-112px);
+    }
+
+    .petal-inner{
+
+        width:50px;
+        height:98px;
+    }
+
+    .petal::before{
+
+        width:62px;
+        height:94px;
+    }
+
+    .core{
+
+        width:82px;
+        height:82px;
+    }
+
+    .hero-title{
+
+        font-size:
+            clamp(37px,10vw,48px);
+    }
+
+}
+
 
 /* =========================================================
    REDUCE MOTION
@@ -1305,8 +2245,12 @@ button{
     *,
     *::before,
     *::after{
+
         animation-duration:.01ms !important;
-        animation-iteration-count:1 !important;
+
+        animation-iteration-count:
+            1 !important;
+
         scroll-behavior:auto !important;
     }
 
@@ -1320,8 +2264,11 @@ button{
 <div class="grain"></div>
 
 <div class="background">
+
     <div class="background-orb"></div>
+
     <div class="background-orb"></div>
+
 </div>
 
 <div id="particles"></div>
@@ -1353,8 +2300,12 @@ button{
             17 · SEPTIEMBRE · 2026
         </div>
 
-        <button class="intro-start" onclick="startExperience()">
+        <button
+            class="intro-start"
+            onclick="startExperience()">
+
             ENTRAR
+
         </button>
 
     </div>
@@ -1386,7 +2337,9 @@ button{
      HERO
 ========================================================= -->
 
-<section class="scene" id="hero">
+<section
+    class="scene"
+    id="hero">
 
     <div>
 
@@ -1395,14 +2348,18 @@ button{
         </div>
 
         <h1 class="hero-title">
+
             Hoy no quiero hablarte
             <br>
-            de lo que <em>ya pasó.</em>
+            de lo <em>que ya pasó.</em>
+
         </h1>
 
         <p class="hero-sub">
+
             Quiero hablarte de todo aquello que todavía
             quiero construir, descubrir y vivir contigo.
+
         </p>
 
         <div class="scroll-hint">
@@ -1418,7 +2375,9 @@ button{
      LOS 11
 ========================================================= -->
 
-<section class="scene" id="flowerScene">
+<section
+    class="scene"
+    id="flowerScene">
 
     <div class="flower-intro">
 
@@ -1444,88 +2403,165 @@ button{
 
         <div class="petals">
 
-            <div class="petal" data-index="0">
-                <div class="petal-inner">
+
+            <button
+                class="petal"
+                data-index="0"
+                aria-label="Promesa uno">
+
+                <span class="petal-inner">
                     <span class="petal-number">I</span>
-                </div>
-            </div>
+                </span>
 
-            <div class="petal" data-index="1">
-                <div class="petal-inner">
+            </button>
+
+
+            <button
+                class="petal"
+                data-index="1"
+                aria-label="Promesa dos">
+
+                <span class="petal-inner">
                     <span class="petal-number">II</span>
-                </div>
-            </div>
+                </span>
 
-            <div class="petal" data-index="2">
-                <div class="petal-inner">
+            </button>
+
+
+            <button
+                class="petal"
+                data-index="2"
+                aria-label="Promesa tres">
+
+                <span class="petal-inner">
                     <span class="petal-number">III</span>
-                </div>
-            </div>
+                </span>
 
-            <div class="petal" data-index="3">
-                <div class="petal-inner">
+            </button>
+
+
+            <button
+                class="petal"
+                data-index="3"
+                aria-label="Promesa cuatro">
+
+                <span class="petal-inner">
                     <span class="petal-number">IV</span>
-                </div>
-            </div>
+                </span>
 
-            <div class="petal" data-index="4">
-                <div class="petal-inner">
+            </button>
+
+
+            <button
+                class="petal"
+                data-index="4"
+                aria-label="Promesa cinco">
+
+                <span class="petal-inner">
                     <span class="petal-number">V</span>
-                </div>
-            </div>
+                </span>
 
-            <div class="petal" data-index="5">
-                <div class="petal-inner">
+            </button>
+
+
+            <button
+                class="petal"
+                data-index="5"
+                aria-label="Promesa seis">
+
+                <span class="petal-inner">
                     <span class="petal-number">VI</span>
-                </div>
-            </div>
+                </span>
 
-            <div class="petal" data-index="6">
-                <div class="petal-inner">
+            </button>
+
+
+            <button
+                class="petal"
+                data-index="6"
+                aria-label="Promesa siete">
+
+                <span class="petal-inner">
                     <span class="petal-number">VII</span>
-                </div>
-            </div>
+                </span>
 
-            <div class="petal" data-index="7">
-                <div class="petal-inner">
+            </button>
+
+
+            <button
+                class="petal"
+                data-index="7"
+                aria-label="Promesa ocho">
+
+                <span class="petal-inner">
                     <span class="petal-number">VIII</span>
-                </div>
-            </div>
+                </span>
 
-            <div class="petal" data-index="8">
-                <div class="petal-inner">
+            </button>
+
+
+            <button
+                class="petal"
+                data-index="8"
+                aria-label="Promesa nueve">
+
+                <span class="petal-inner">
                     <span class="petal-number">IX</span>
-                </div>
-            </div>
+                </span>
 
-            <div class="petal" data-index="9">
-                <div class="petal-inner">
+            </button>
+
+
+            <button
+                class="petal"
+                data-index="9"
+                aria-label="Promesa diez">
+
+                <span class="petal-inner">
                     <span class="petal-number">X</span>
-                </div>
-            </div>
+                </span>
 
-            <div class="petal" data-index="10">
-                <div class="petal-inner">
+            </button>
+
+
+            <button
+                class="petal"
+                data-index="10"
+                aria-label="Promesa once">
+
+                <span class="petal-inner">
                     <span class="petal-number">XI</span>
-                </div>
-            </div>
+                </span>
+
+            </button>
+
 
         </div>
 
 
         <div class="core">
+
             <div class="core-label">
                 TÚ
             </div>
+
         </div>
 
     </div>
 
 
-    <div class="progress" id="progress"></div>
+    <div
+        class="progress"
+        id="progress">
+    </div>
 
-    <button class="continue" onclick="afterFlower()">
+
+    <button
+        class="continue"
+        onclick="afterFlower()">
+
         HE DESCUBIERTO LOS 11
+
     </button>
 
 </section>
@@ -1535,16 +2571,26 @@ button{
      MODAL
 ========================================================= -->
 
-<div class="overlay" id="overlay">
+<div
+    class="overlay"
+    id="overlay">
 
     <div class="modal">
 
         <div class="modal-symbol">
-            <span id="modalRoman">I</span>
+
+            <span id="modalRoman">
+                I
+            </span>
+
         </div>
 
-        <div class="modal-number" id="modalNumber">
+        <div
+            class="modal-number"
+            id="modalNumber">
+
             UNA PROMESA
+
         </div>
 
         <h2 id="modalTitle">
@@ -1556,7 +2602,9 @@ button{
         <button
             class="modal-close"
             onclick="closeModal()">
+
             VOLVER
+
         </button>
 
     </div>
@@ -1568,7 +2616,9 @@ button{
      ESCENA CINEMÁTICA
 ========================================================= -->
 
-<section class="scene hidden" id="cinematicScene">
+<section
+    class="scene hidden"
+    id="cinematicScene">
 
     <div class="cinematic">
 
@@ -1585,16 +2635,20 @@ button{
         </div>
 
         <p>
+
             Quiero que sea algo que sigamos construyendo.
             Algo que todavía tenga lugares nuevos por descubrir,
             sueños nuevos por imaginar y muchísimas razones
             para volver a elegirnos.
+
         </p>
 
         <button
             class="continue"
             onclick="goToFuture()">
+
             SIGAMOS
+
         </button>
 
     </div>
@@ -1606,7 +2660,9 @@ button{
      FUTURO
 ========================================================= -->
 
-<section class="scene hidden" id="futureScene">
+<section
+    class="scene hidden"
+    id="futureScene">
 
     <div class="cinematic">
 
@@ -1615,66 +2671,93 @@ button{
         </div>
 
         <div class="big">
+
             Quiero más
             <em>contigo.</em>
+
         </div>
 
         <p>
+
             No hablo solamente de grandes momentos.
             También de todas esas pequeñas cosas que algún día
             podremos vivir y que todavía ni siquiera sabemos
             que van a convertirse en parte de nosotros.
+
         </p>
 
 
         <div class="future-list">
 
             <div class="future-card">
+
                 <span>01</span>
+
                 <p>
                     Seguir encontrando nuevas razones
                     para hacerte sonreír.
                 </p>
+
             </div>
 
+
             <div class="future-card">
+
                 <span>02</span>
+
                 <p>
                     Seguir sorprendiéndote cuando menos
                     lo esperes.
                 </p>
+
             </div>
 
+
             <div class="future-card">
+
                 <span>03</span>
+
                 <p>
                     Conocer cada vez más esa persona
                     increíble que eres.
                 </p>
+
             </div>
 
+
             <div class="future-card">
+
                 <span>04</span>
+
                 <p>
                     Seguir creando pequeños mundos
                     solamente para nosotros.
                 </p>
+
             </div>
 
+
             <div class="future-card">
+
                 <span>05</span>
+
                 <p>
                     Celebrar tus sueños como si también
                     fueran un poquito míos.
                 </p>
+
             </div>
 
+
             <div class="future-card">
+
                 <span>06</span>
+
                 <p>
                     Llegar algún día a mirar atrás
                     y sentir orgullo de todo lo construido.
                 </p>
+
             </div>
 
         </div>
@@ -1682,7 +2765,9 @@ button{
         <button
             class="continue"
             onclick="goToEnvelope()">
+
             TODAVÍA FALTA ALGO
+
         </button>
 
     </div>
@@ -1694,17 +2779,28 @@ button{
      SOBRE
 ========================================================= -->
 
-<section class="scene hidden envelope-scene" id="envelopeScene">
+<section
+    class="scene hidden envelope-scene"
+    id="envelopeScene">
 
     <div>
 
         <div class="eyebrow">
-            UNA COSA QUE NO QUERÍA DEJAR ESCRITA AFUERA
+
+            UNA COSA QUE NO QUERÍA
+            DEJAR ESCRITA AFUERA
+
         </div>
 
-        <div class="envelope" id="envelope" onclick="openEnvelope()">
+
+        <div
+            class="envelope"
+            id="envelope"
+            onclick="openEnvelope()">
+
 
             <div class="envelope-back"></div>
+
 
             <div class="envelope-letter">
 
@@ -1726,18 +2822,33 @@ button{
 
             </div>
 
+
             <div class="envelope-flap"></div>
+
 
             <div class="seal">
                 ♥
             </div>
 
+
         </div>
+
+
+        <div
+            class="envelope-hint"
+            id="envelopeHint">
+
+            TOCA EL SOBRE PARA ABRIRLO
+
+        </div>
+
 
         <button
             class="continue"
             onclick="goTo365()">
+
             CONTINUAR
+
         </button>
 
     </div>
@@ -1749,7 +2860,9 @@ button{
      365
 ========================================================= -->
 
-<section class="scene hidden number-scene" id="numberScene">
+<section
+    class="scene hidden number-scene"
+    id="numberScene">
 
     <div>
 
@@ -1762,22 +2875,30 @@ button{
         </div>
 
         <h2>
+
             Días que todavía
             no hemos vivido.
+
         </h2>
 
         <p>
+
             No sé qué traerán.
             Y no necesito saberlo todo.
+
             <br><br>
+
             Me basta con saber que quiero descubrirlos
             contigo.
+
         </p>
 
         <button
             class="continue"
             onclick="goToPromise()">
+
             MIRA HACIA EL PRIMER AÑO
+
         </button>
 
     </div>
@@ -1789,7 +2910,9 @@ button{
      PROMESA
 ========================================================= -->
 
-<section class="scene hidden" id="promiseScene">
+<section
+    class="scene hidden"
+    id="promiseScene">
 
     <div class="promise">
 
@@ -1798,11 +2921,15 @@ button{
         </div>
 
         <h2>
+
             No puedo prometerte
             <span>todos los días.</span>
+
             <br><br>
+
             Pero sí puedo prometerte
             <span>mi intención de amarte.</span>
+
         </h2>
 
         <div class="promise-lines">
@@ -1828,8 +2955,13 @@ button{
             </div>
 
             <div class="promise-line">
+
                 Y sobre todo...
-                <strong>quiero seguir eligiéndote.</strong>
+
+                <strong>
+                    quiero seguir eligiéndote.
+                </strong>
+
             </div>
 
         </div>
@@ -1837,7 +2969,9 @@ button{
         <button
             class="continue"
             onclick="goToQuestion()">
+
             UNA ÚLTIMA PREGUNTA
+
         </button>
 
     </div>
@@ -1849,7 +2983,9 @@ button{
      PREGUNTA FINAL
 ========================================================= -->
 
-<section class="scene hidden" id="questionScene">
+<section
+    class="scene hidden"
+    id="questionScene">
 
     <div class="question">
 
@@ -1858,19 +2994,31 @@ button{
         </div>
 
         <h2>
+
             Valeria...
+
             <br><br>
+
             ¿me acompañas hacia
+
             <br>
-            <em>nuestro primer año?</em>
+
+            <em>
+                nuestro primer año?
+            </em>
+
         </h2>
 
         <p>
+
             No te estoy preguntando si podemos saber
             cómo será todo.
+
             <br><br>
+
             Solo quiero saber si quieres seguir caminando
             conmigo hacia todo lo que todavía nos falta.
+
         </p>
 
         <div class="answers">
@@ -1878,13 +3026,17 @@ button{
             <button
                 class="answer"
                 onclick="finish()">
+
                 SÍ, CONTIGO
+
             </button>
 
             <button
                 class="answer"
                 onclick="finish()">
+
                 SIEMPRE CONTIGO
+
             </button>
 
         </div>
@@ -1898,7 +3050,9 @@ button{
      FINAL
 ========================================================= -->
 
-<section class="scene hidden" id="finalScene">
+<section
+    class="scene hidden"
+    id="finalScene">
 
     <div class="final-aura"></div>
 
@@ -1906,16 +3060,24 @@ button{
 
         <div class="final-heart"></div>
 
-        <div class="eyebrow" style="margin-top:45px;">
+        <div
+            class="eyebrow"
+            style="margin-top:45px;">
+
             11 MESES
+
         </div>
 
         <h2>
+
             Entonces...
+
             <br>
+
             <em style="color:#d6b173;">
                 sigamos.
             </em>
+
         </h2>
 
         <p>
@@ -1923,24 +3085,32 @@ button{
         </p>
 
         <p>
+
             Sigamos creando momentos que todavía
             no existen, inventando pequeñas locuras,
             aprendiendo uno del otro y encontrando
             nuevas formas de decirnos “te amo”.
+
         </p>
 
         <p>
+
             Hoy celebramos once meses.
+
             <br><br>
+
             Pero lo que realmente quiero celebrar
             es que todavía tengo ganas de vivir
             muchísimo más contigo.
+
         </p>
 
         <p>
+
             <strong>
                 Feliz 11.º mes, mi amor.
             </strong>
+
         </p>
 
         <div class="final-names">
@@ -1987,7 +3157,8 @@ for(let i=0;i<110;i++){
     const particle =
     document.createElement("div");
 
-    particle.className="particle";
+    particle.className =
+        "particle";
 
     particle.style.left =
         Math.random()*100+"%";
@@ -2010,7 +3181,9 @@ for(let i=0;i<110;i++){
         ((Math.random()-.5)*180)+"px"
     );
 
-    particleBox.appendChild(particle);
+    particleBox.appendChild(
+        particle
+    );
 }
 
 
@@ -2028,7 +3201,9 @@ for(let i=0;i<11;i++){
 
     dot.dataset.index=i;
 
-    progress.appendChild(dot);
+    progress.appendChild(
+        dot
+    );
 }
 
 
@@ -2040,64 +3215,96 @@ const promises=[
 
 {
 title:"Elegirte",
-text:"Porque quiero que sepas que amarte no es solamente algo que siento. También es una decisión que quiero seguir tomando cada día, incluso en las cosas pequeñas."
+
+text:
+"Porque quiero que sepas que amarte no es solamente algo que siento. También es una decisión que quiero seguir tomando cada día, incluso en las cosas pequeñas."
 },
 
 {
 title:"Cuidarte",
-text:"Quiero ser una persona con la que puedas sentirte tranquila. Alguien que quiera verte bien, que quiera verte sonreír y que disfrute poder hacer algo bonito por ti."
+
+text:
+"Quiero ser una persona con la que puedas sentirte tranquila. Alguien que quiera verte bien, que quiera verte sonreír y que disfrute poder hacer algo bonito por ti."
 },
 
 {
 title:"Admirarte",
-text:"Quiero seguir descubriendo todas esas cosas que te hacen ser tú. Tus detalles, tu manera de pensar, tus gestos y esas pequeñas partes de ti que quizá ni siquiera sabes cuánto admiro."
+
+text:
+"Quiero seguir descubriendo todas esas cosas que te hacen ser tú. Tus detalles, tu manera de pensar, tus gestos y esas pequeñas partes de ti que quizá ni siquiera sabes cuánto admiro."
 },
 
 {
 title:"Hacerte sonreír",
-text:"Quiero seguir inventando razones para que aparezca esa sonrisa tuya que tanto me gusta. A veces será algo grande y otras veces será una tontería, pero quiero seguir intentándolo."
+
+text:
+"Quiero seguir inventando razones para que aparezca esa sonrisa tuya que tanto me gusta. A veces será algo grande y otras veces será una tontería, pero quiero seguir intentándolo."
 },
 
 {
 title:"Aprender contigo",
-text:"Todavía tengo muchísimo que aprender de ti. Y una de las cosas bonitas de estar contigo es saber que después de once meses todavía quedan partes de tu mundo que quiero conocer."
+
+text:
+"Todavía tengo muchísimo que aprender de ti. Y una de las cosas bonitas de estar contigo es saber que después de once meses todavía quedan partes de tu mundo que quiero conocer."
 },
 
 {
 title:"Abrazarte",
-text:"Quiero seguir siendo ese abrazo que no necesita demasiadas palabras. Ese momento en el que puedas simplemente respirar y sentirte querida."
+
+text:
+"Quiero seguir siendo ese abrazo que no necesita demasiadas palabras. Ese momento en el que puedas simplemente respirar y sentirte querida."
 },
 
 {
 title:"Celebrarte",
-text:"Quiero celebrar tus sueños, tus logros y esas pequeñas cosas que te hacen feliz. Quiero que sepas que tus alegrías también pueden convertirse en alegrías para mí."
+
+text:
+"Quiero celebrar tus sueños, tus logros y esas pequeñas cosas que te hacen feliz. Quiero que sepas que tus alegrías también pueden convertirse en alegrías para mí."
 },
 
 {
 title:"Sorprenderte",
-text:"Quiero seguir haciendo cosas que te hagan pensar: “¿cómo se le ocurrió esto?”. Porque me encanta preparar cosas para ti que solamente tengan sentido porque eres tú."
+
+text:
+"Quiero seguir haciendo cosas que te hagan pensar: “¿cómo se le ocurrió esto?”. Porque me encanta preparar cosas para ti que solamente tengan sentido porque eres tú."
 },
 
 {
 title:"Crecer contigo",
-text:"No quiero que los meses simplemente pasen. Quiero que mientras pasan nosotros también aprendamos, maduremos y construyamos algo que cada vez se sienta más nuestro."
+
+text:
+"No quiero que los meses simplemente pasen. Quiero que mientras pasan nosotros también aprendamos, maduremos y construyamos algo que cada vez se sienta más nuestro."
 },
 
 {
 title:"Descubrirte",
-text:"Quiero seguir conociendo nuevas versiones de ti. Porque once meses después todavía me emocionan todas esas cosas que todavía no sé de ti."
+
+text:
+"Quiero seguir conociendo nuevas versiones de ti. Porque once meses después todavía me emocionan todas esas cosas que todavía no sé de ti."
 },
 
 {
 title:"Amarte",
-text:"Y después de todo lo demás siempre queda lo más sencillo: te amo. Y quiero que ese amor no se quede solamente en palabras, sino que aparezca en la forma en la que te trato, te cuido y te elijo."
+
+text:
+"Y después de todo lo demás siempre queda lo más sencillo: te amo. Y quiero que ese amor no se quede solamente en palabras, sino que aparezca en la forma en la que te trato, te cuido y te elijo."
 }
 
 ];
 
+
 const roman=[
-"I","II","III","IV","V",
-"VI","VII","VIII","IX","X","XI"
+"I",
+"II",
+"III",
+"IV",
+"V",
+"VI",
+"VII",
+"VIII",
+"IX",
+"X",
+"XI"
 ];
 
 
@@ -2108,16 +3315,16 @@ const roman=[
 function startExperience(){
 
     document
-    .getElementById("intro")
-    .classList.add("hide");
+        .getElementById("intro")
+        .classList.add("hide");
 
     setTimeout(()=>{
 
         document
-        .getElementById("hero")
-        .scrollIntoView({
-            behavior:"smooth"
-        });
+            .getElementById("hero")
+            .scrollIntoView({
+                behavior:"smooth"
+            });
 
     },900);
 }
@@ -2128,50 +3335,59 @@ function startExperience(){
 ========================================================= */
 
 document
-.querySelectorAll(".petal")
-.forEach((petal,index)=>{
+    .querySelectorAll(".petal")
+    .forEach((petal,index)=>{
 
-    petal.addEventListener("click",()=>{
+        petal.addEventListener(
+            "click",
+            function(){
 
-        const data =
-        promises[index];
+                const data =
+                    promises[index];
 
-        document
-        .getElementById("modalRoman")
-        .textContent =
-        roman[index];
+                document
+                    .getElementById("modalRoman")
+                    .textContent =
+                    roman[index];
 
-        document
-        .getElementById("modalNumber")
-        .textContent =
-        "UNA DE MIS PROMESAS";
+                document
+                    .getElementById("modalNumber")
+                    .textContent =
+                    "PROMESA "+roman[index];
 
-        document
-        .getElementById("modalTitle")
-        .textContent =
-        data.title;
+                document
+                    .getElementById("modalTitle")
+                    .textContent =
+                    data.title;
 
-        document
-        .getElementById("modalText")
-        .textContent =
-        data.text;
+                document
+                    .getElementById("modalText")
+                    .textContent =
+                    data.text;
 
-        document
-        .getElementById("overlay")
-        .classList.add("show");
+                document
+                    .getElementById("overlay")
+                    .classList.add("show");
 
-        petal.classList.add("opened");
+                petal
+                    .classList
+                    .add("opened");
 
-        document
-        .querySelectorAll(".progress span")
-        [index]
-        .classList.add("active");
+                document
+                    .querySelectorAll(".progress span")
+                    [index]
+                    .classList
+                    .add("active");
 
-        createTinyBurst();
+                createTinyBurst();
+
+            },
+            {
+                passive:true
+            }
+        );
 
     });
-
-});
 
 
 /* =========================================================
@@ -2181,10 +3397,33 @@ document
 function closeModal(){
 
     document
-    .getElementById("overlay")
-    .classList.remove("show");
-
+        .getElementById("overlay")
+        .classList
+        .remove("show");
 }
+
+
+/*
+   También permite cerrar tocando
+   fuera del contenido.
+*/
+
+document
+    .getElementById("overlay")
+    .addEventListener(
+        "click",
+        function(event){
+
+            if(
+                event.target === this
+            ){
+
+                closeModal();
+
+            }
+
+        }
+    );
 
 
 /* =========================================================
@@ -2196,53 +3435,85 @@ function createTinyBurst(){
     for(let i=0;i<10;i++){
 
         const p =
-        document.createElement("div");
+            document.createElement("div");
 
-        p.style.position="fixed";
-        p.style.left="50%";
-        p.style.top="50%";
-        p.style.width="3px";
-        p.style.height="3px";
-        p.style.borderRadius="50%";
-        p.style.background="#e0bd7b";
-        p.style.zIndex="1200";
-        p.style.pointerEvents="none";
+        p.style.position =
+            "fixed";
 
-        document.body.appendChild(p);
+        p.style.left =
+            "50%";
+
+        p.style.top =
+            "50%";
+
+        p.style.width =
+            "3px";
+
+        p.style.height =
+            "3px";
+
+        p.style.borderRadius =
+            "50%";
+
+        p.style.background =
+            "#e0bd7b";
+
+        p.style.zIndex =
+            "1200";
+
+        p.style.pointerEvents =
+            "none";
+
+        document
+            .body
+            .appendChild(p);
 
         const angle =
-        Math.random()*Math.PI*2;
+            Math.random()
+            *Math.PI*2;
 
         const distance =
-        50+Math.random()*100;
+            50+
+            Math.random()*100;
 
         p.animate(
-        [
+
+            [
+
+                {
+                    transform:
+                    "translate(-50%,-50%) scale(0)",
+                    opacity:0
+                },
+
+                {
+                    transform:
+                    `translate(
+                        ${Math.cos(angle)*distance}px,
+                        ${Math.sin(angle)*distance}px
+                    ) scale(1)`,
+
+                    opacity:.8
+                },
+
+                {
+                    transform:
+                    `translate(
+                        ${Math.cos(angle)*distance*1.5}px,
+                        ${Math.sin(angle)*distance*1.5}px
+                    ) scale(0)`,
+
+                    opacity:0
+                }
+
+            ],
+
             {
-                transform:"translate(-50%,-50%) scale(0)",
-                opacity:0
-            },
-            {
-                transform:
-                `translate(
-                    ${Math.cos(angle)*distance}px,
-                    ${Math.sin(angle)*distance}px
-                ) scale(1)`,
-                opacity:.8
-            },
-            {
-                transform:
-                `translate(
-                    ${Math.cos(angle)*distance*1.5}px,
-                    ${Math.sin(angle)*distance*1.5}px
-                ) scale(0)`,
-                opacity:0
+                duration:900,
+                easing:"ease-out"
             }
-        ],
-        {
-            duration:900,
-            easing:"ease-out"
-        });
+
+        );
 
         setTimeout(()=>{
             p.remove();
@@ -2260,15 +3531,17 @@ function createTinyBurst(){
 function showScene(id){
 
     document
-    .querySelectorAll(".scene")
-    .forEach(scene=>{
-        scene.classList.add("hidden");
-    });
+        .querySelectorAll(".scene")
+        .forEach(scene=>{
+            scene.classList
+                .add("hidden");
+        });
 
     const target =
-    document.getElementById(id);
+        document.getElementById(id);
 
-    target.classList.remove("hidden");
+    target.classList
+        .remove("hidden");
 
     window.scrollTo({
         top:0,
@@ -2279,42 +3552,52 @@ function showScene(id){
 
 function afterFlower(){
 
-    showScene("cinematicScene");
-
+    showScene(
+        "cinematicScene"
+    );
 }
 
 
 function goToFuture(){
 
-    showScene("futureScene");
-
+    showScene(
+        "futureScene"
+    );
 }
 
 
 function goToEnvelope(){
 
-    showScene("envelopeScene");
+    showScene(
+        "envelopeScene"
+    );
 
 }
 
 
 function goTo365(){
 
-    showScene("numberScene");
+    showScene(
+        "numberScene"
+    );
 
 }
 
 
 function goToPromise(){
 
-    showScene("promiseScene");
+    showScene(
+        "promiseScene"
+    );
 
 }
 
 
 function goToQuestion(){
 
-    showScene("questionScene");
+    showScene(
+        "questionScene"
+    );
 
 }
 
@@ -2323,12 +3606,37 @@ function goToQuestion(){
    SOBRE
 ========================================================= */
 
+let envelopeOpened=false;
+
 function openEnvelope(){
 
     const envelope =
-    document.getElementById("envelope");
+        document.getElementById(
+            "envelope"
+        );
 
-    envelope.classList.add("open");
+    if(envelopeOpened){
+
+        return;
+
+    }
+
+    envelopeOpened=true;
+
+    envelope
+        .classList
+        .add("open");
+
+    const hint =
+        document.getElementById(
+            "envelopeHint"
+        );
+
+    if(hint){
+
+        hint.style.opacity="0";
+
+    }
 
     createTinyBurst();
 
@@ -2341,7 +3649,9 @@ function openEnvelope(){
 
 function finish(){
 
-    showScene("finalScene");
+    showScene(
+        "finalScene"
+    );
 
     finalCelebration();
 
@@ -2364,69 +3674,92 @@ function finalCelebration(){
     for(let i=0;i<100;i++){
 
         const item =
-        document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
         item.textContent =
-        symbols[
-            Math.floor(
-                Math.random()*symbols.length
-            )
-        ];
+            symbols[
+                Math.floor(
+                    Math.random()
+                    *symbols.length
+                )
+            ];
 
-        item.style.position="fixed";
+        item.style.position =
+            "fixed";
 
         item.style.left =
-        Math.random()*100+"%";
+            Math.random()*100+"%";
 
-        item.style.bottom="-30px";
+        item.style.bottom =
+            "-30px";
 
-        item.style.zIndex="9998";
+        item.style.zIndex =
+            "9998";
 
-        item.style.pointerEvents="none";
+        item.style.pointerEvents =
+            "none";
 
         item.style.color =
-        "rgba(221,183,112,.75)";
+            "rgba(221,183,112,.75)";
 
         item.style.fontSize =
-        (7+Math.random()*20)+"px";
+            (7+Math.random()*20)
+            +"px";
 
-        document.body.appendChild(item);
+        document
+            .body
+            .appendChild(item);
 
         const duration =
-        3500+Math.random()*5000;
+            3500+
+            Math.random()*5000;
 
         const drift =
-        (Math.random()-.5)*180;
+            (Math.random()-.5)*180;
 
         item.animate(
 
-        [
-            {
-                transform:
-                "translate(0,0) scale(.3)",
-                opacity:0
-            },
+            [
+
+                {
+                    transform:
+                    "translate(0,0) scale(.3)",
+
+                    opacity:0
+                },
+
+                {
+                    transform:
+                    `translate(
+                        ${drift/2}px,
+                        -50vh
+                    ) scale(1)`,
+
+                    opacity:.75
+                },
+
+                {
+                    transform:
+                    `translate(
+                        ${drift}px,
+                        -115vh
+                    ) scale(.2)`,
+
+                    opacity:0
+                }
+
+            ],
 
             {
-                transform:
-                `translate(${drift/2}px,-50vh)
-                 scale(1)`,
-                opacity:.75
-            },
+                duration,
 
-            {
-                transform:
-                `translate(${drift}px,-115vh)
-                 scale(.2)`,
-                opacity:0
+                easing:
+                "cubic-bezier(.16,.8,.2,1)"
             }
 
-        ],
-
-        {
-            duration,
-            easing:"cubic-bezier(.16,.8,.2,1)"
-        });
+        );
 
         setTimeout(()=>{
             item.remove();
@@ -2439,4 +3772,4 @@ function finalCelebration(){
 </script>
 
 </body>
-    </html> 
+   </html> 
