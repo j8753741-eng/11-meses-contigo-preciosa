@@ -910,7 +910,7 @@ button{
 
 
 /* =========================================================
-   PETAL
+   PETAL · SISTEMA DE INTERACCIÓN REPARADO
 ========================================================= */
 
 .petals{
@@ -918,6 +918,10 @@ button{
     position:absolute;
 
     inset:0;
+
+    z-index:10;
+
+    pointer-events:none;
 }
 
 .petal{
@@ -933,24 +937,27 @@ button{
     margin-left:-35px;
     margin-top:-125px;
 
-    transform-origin:
-        50% 125px;
+    transform-origin:50% 125px;
 
     cursor:pointer;
 
-    z-index:10;
+    z-index:30;
+
+    pointer-events:auto;
 
     transition:
-
-        transform 1s
-        cubic-bezier(.15,.8,.2,1),
-
+        transform 1s cubic-bezier(.15,.8,.2,1),
         opacity .6s,
-
         filter .5s;
+    
+    -webkit-tap-highlight-color:transparent;
+
+    touch-action:manipulation;
 }
 
 .petal-inner{
+
+    position:relative;
 
     height:100%;
     width:100%;
@@ -985,7 +992,11 @@ button{
 
     justify-content:center;
 
+    align-items:flex-start;
+
     padding-top:24px;
+
+    pointer-events:auto;
 
     transition:.7s;
 }
@@ -993,6 +1004,13 @@ button{
 .petal:hover{
 
     filter:brightness(1.35);
+}
+
+.petal:active{
+
+    transform:
+        var(--petal-rotation)
+        scale(.94);
 }
 
 .petal:hover .petal-inner{
@@ -1011,6 +1029,8 @@ button{
     opacity:.3;
 
     filter:saturate(.5);
+
+    pointer-events:auto;
 }
 
 .petal-number{
@@ -1020,51 +1040,93 @@ button{
     color:#f8deb0;
 
     font-size:10px;
+
+    pointer-events:none;
+
+    user-select:none;
 }
 
+
+/* =========================================================
+   ROTACIONES
+========================================================= */
+
 .petal:nth-child(1){
-    transform:rotate(0deg)
+
+    --petal-rotation:rotate(0deg);
+
+    transform:rotate(0deg);
 }
 
 .petal:nth-child(2){
-    transform:rotate(32.72deg)
+
+    --petal-rotation:rotate(32.72deg);
+
+    transform:rotate(32.72deg);
 }
 
 .petal:nth-child(3){
-    transform:rotate(65.45deg)
+
+    --petal-rotation:rotate(65.45deg);
+
+    transform:rotate(65.45deg);
 }
 
 .petal:nth-child(4){
-    transform:rotate(98.18deg)
+
+    --petal-rotation:rotate(98.18deg);
+
+    transform:rotate(98.18deg);
 }
 
 .petal:nth-child(5){
-    transform:rotate(130.9deg)
+
+    --petal-rotation:rotate(130.9deg);
+
+    transform:rotate(130.9deg);
 }
 
 .petal:nth-child(6){
-    transform:rotate(163.63deg)
+
+    --petal-rotation:rotate(163.63deg);
+
+    transform:rotate(163.63deg);
 }
 
 .petal:nth-child(7){
-    transform:rotate(196.36deg)
+
+    --petal-rotation:rotate(196.36deg);
+
+    transform:rotate(196.36deg);
 }
 
 .petal:nth-child(8){
-    transform:rotate(229.09deg)
+
+    --petal-rotation:rotate(229.09deg);
+
+    transform:rotate(229.09deg);
 }
 
 .petal:nth-child(9){
-    transform:rotate(261.81deg)
+
+    --petal-rotation:rotate(261.81deg);
+
+    transform:rotate(261.81deg);
 }
 
 .petal:nth-child(10){
-    transform:rotate(294.54deg)
+
+    --petal-rotation:rotate(294.54deg);
+
+    transform:rotate(294.54deg);
 }
 
 .petal:nth-child(11){
-    transform:rotate(327.27deg)
-}
+
+    --petal-rotation:rotate(327.27deg);
+
+    transform:rotate(327.27deg);
+      }
 
 
 /* =========================================================
