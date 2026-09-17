@@ -1,14 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<meta name="theme-color" content="#050407">
+
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
+
+<meta name="theme-color"
+      content="#050407">
+
 <title>11 · Once veces te elegiría</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link rel="preconnect"
+      href="https://fonts.googleapis.com">
+
+<link rel="preconnect"
+      href="https://fonts.gstatic.com"
+      crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=DM+Sans:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap"
+      rel="stylesheet">
+
 
 <style>
 
@@ -20,7 +33,6 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    -webkit-tap-highlight-color:transparent;
 }
 
 html{
@@ -36,11 +48,6 @@ body{
 
 button{
     font-family:inherit;
-    -webkit-appearance:none;
-}
-
-button:focus{
-    outline:none;
 }
 
 
@@ -49,134 +56,201 @@ button:focus{
 ========================================================= */
 
 :root{
+
     --gold:#d7b477;
     --gold-light:#f0d7a5;
+
     --wine:#6e3f49;
+    --wine-light:#9a5d67;
+
     --cream:#eee1cf;
+
     --muted:#9c938a;
+
     --dark:#030306;
 }
 
 
 /* =========================================================
-   FILM GRAIN
+   GRAIN CINEMATOGRÁFICO
 ========================================================= */
 
 .grain{
+
     position:fixed;
+
     inset:-50%;
+
     width:200%;
     height:200%;
+
     z-index:9999;
+
     pointer-events:none;
+
     opacity:.045;
 
     background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 
-    animation:grainMove .25s steps(2) infinite;
+    animation:
+        grainMove .25s steps(2) infinite;
 }
 
 @keyframes grainMove{
-    0%{transform:translate(0,0)}
-    25%{transform:translate(2%,-2%)}
-    50%{transform:translate(-2%,2%)}
-    75%{transform:translate(2%,2%)}
-    100%{transform:translate(-2%,-2%)}
-}
 
+    0%{
+        transform:translate(0,0)
+    }
 
-/* =========================================================
-   BACKGROUND
-========================================================= */
+    25%{
+        transform:translate(2%,-2%)
+    }
 
-.background{
-    position:fixed;
-    inset:0;
-    z-index:-20;
-    overflow:hidden;
+    50%{
+        transform:translate(-2%,2%)
+    }
 
-    background:
-        radial-gradient(
-            circle at 50% 45%,
-            rgba(140,91,65,.18),
-            transparent 27%
-        ),
-        radial-gradient(
-            circle at 15% 85%,
-            rgba(98,47,68,.13),
-            transparent 32%
-        ),
-        radial-gradient(
-            circle at 90% 15%,
-            rgba(194,151,79,.07),
-            transparent 25%
-        ),
-        #030306;
-}
+    75%{
+        transform:translate(2%,2%)
+    }
 
-.background-orb{
-    position:absolute;
-    width:55vw;
-    height:55vw;
-    max-width:700px;
-    max-height:700px;
-    border-radius:50%;
-    border:1px solid rgba(215,180,119,.025);
-    left:50%;
-    top:50%;
-    transform:translate(-50%,-50%);
-    animation:orbRotate 40s linear infinite;
-}
-
-.background-orb:nth-child(2){
-    width:75vw;
-    height:75vw;
-    animation-duration:65s;
-    animation-direction:reverse;
-}
-
-@keyframes orbRotate{
-    to{
-        transform:
-        translate(-50%,-50%)
-        rotate(360deg);
+    100%{
+        transform:translate(-2%,-2%)
     }
 }
 
 
 /* =========================================================
-   PARTICLES
+   FONDO
+========================================================= */
+
+.background{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-20;
+
+    overflow:hidden;
+
+    background:
+
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(140,91,65,.18),
+            transparent 27%
+        ),
+
+        radial-gradient(
+            circle at 15% 85%,
+            rgba(98,47,68,.13),
+            transparent 32%
+        ),
+
+        radial-gradient(
+            circle at 90% 15%,
+            rgba(194,151,79,.07),
+            transparent 25%
+        ),
+
+        #030306;
+}
+
+.background-orb{
+
+    position:absolute;
+
+    width:55vw;
+    height:55vw;
+
+    max-width:700px;
+    max-height:700px;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(215,180,119,.025);
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    animation:
+        orbRotate 40s linear infinite;
+}
+
+.background-orb:nth-child(2){
+
+    width:75vw;
+    height:75vw;
+
+    animation-duration:65s;
+
+    animation-direction:reverse;
+}
+
+@keyframes orbRotate{
+
+    to{
+
+        transform:
+            translate(-50%,-50%)
+            rotate(360deg);
+    }
+}
+
+
+/* =========================================================
+   PARTICULAS
 ========================================================= */
 
 #particles{
+
     position:fixed;
+
     inset:0;
+
     z-index:-2;
+
     pointer-events:none;
+
     overflow:hidden;
 }
 
 .particle{
+
     position:absolute;
+
     width:2px;
     height:2px;
+
     border-radius:50%;
+
     background:#e6c78d;
+
     opacity:0;
 
     animation:
-        drift var(--duration)
+        drift
+        var(--duration)
         var(--delay)
-        infinite ease-in-out;
+        infinite
+        ease-in-out;
 }
 
 @keyframes drift{
 
     0%{
+
         transform:
-        translate3d(0,80px,0)
-        scale(.5);
+            translate3d(0,80px,0)
+            scale(.5);
+
         opacity:0;
     }
 
@@ -189,9 +263,15 @@ button:focus{
     }
 
     100%{
+
         transform:
-        translate3d(var(--move),-180px,0)
-        scale(1.2);
+            translate3d(
+                var(--move),
+                -180px,
+                0
+            )
+            scale(1.2);
+
         opacity:0;
     }
 }
@@ -202,13 +282,19 @@ button:focus{
 ========================================================= */
 
 #intro{
+
     position:fixed;
+
     inset:0;
+
     z-index:5000;
+
     background:#020205;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     text-align:center;
@@ -219,28 +305,42 @@ button:focus{
 }
 
 #intro.hide{
+
     opacity:0;
+
     visibility:hidden;
+
     pointer-events:none;
 }
 
 .intro-content{
+
     width:min(900px,92%);
 }
 
 .intro-top{
+
     font-family:"Cinzel",serif;
+
     font-size:9px;
+
     letter-spacing:8px;
+
     color:#aa8a5b;
+
     opacity:0;
 
-    animation:fadeIn 1.8s .5s forwards;
+    animation:
+        fadeIn 1.8s .5s forwards;
 }
 
 .intro-11{
+
     font-family:"Cinzel",serif;
-    font-size:clamp(150px,36vw,330px);
+
+    font-size:
+        clamp(150px,36vw,330px);
+
     line-height:.72;
 
     color:transparent;
@@ -249,19 +349,27 @@ button:focus{
         1px rgba(222,185,119,.65);
 
     opacity:0;
+
     transform:scale(.8);
 
     animation:
-        numberAppear 2.4s .8s
+        numberAppear
+        2.4s
+        .8s
         cubic-bezier(.16,.8,.2,1)
         forwards;
 }
 
 .intro-word{
+
     margin-top:45px;
 
-    font-family:"Playfair Display",serif;
-    font-size:clamp(26px,6vw,48px);
+    font-family:
+        "Playfair Display",serif;
+
+    font-size:
+        clamp(26px,6vw,48px);
+
     font-style:italic;
 
     color:#e9dece;
@@ -269,37 +377,58 @@ button:focus{
     opacity:0;
 
     animation:
-        fadeIn 2s 1.8s forwards;
+        fadeIn
+        2s
+        1.8s
+        forwards;
 }
 
 .intro-rule{
+
     width:0;
+
     height:1px;
+
     background:var(--gold);
+
     margin:35px auto;
 
     animation:
-        ruleIn 1.5s 2.5s forwards;
+        ruleIn
+        1.5s
+        2.5s
+        forwards;
 }
 
 .intro-date{
+
     font-family:"Cinzel",serif;
+
     color:#716960;
+
     letter-spacing:6px;
+
     font-size:9px;
 
     opacity:0;
 
     animation:
-        fadeIn 1.5s 2.8s forwards;
+        fadeIn
+        1.5s
+        2.8s
+        forwards;
 }
 
 .intro-start{
+
     margin-top:45px;
 
-    border:1px solid rgba(215,180,119,.4);
+    border:
+        1px solid
+        rgba(215,180,119,.4);
 
-    background:rgba(255,255,255,.02);
+    background:
+        rgba(255,255,255,.02);
 
     color:#dfc18b;
 
@@ -308,6 +437,7 @@ button:focus{
     border-radius:100px;
 
     letter-spacing:5px;
+
     font-size:9px;
 
     cursor:pointer;
@@ -315,47 +445,65 @@ button:focus{
     opacity:0;
 
     animation:
-        fadeIn 1.5s 3.3s forwards;
+        fadeIn
+        1.5s
+        3.3s
+        forwards;
 
     transition:.6s;
 }
 
 .intro-start:hover{
+
     transform:translateY(-4px);
 
     background:
         rgba(215,180,119,.08);
 
     box-shadow:
-        0 0 60px rgba(215,180,119,.13);
+        0 0 60px
+        rgba(215,180,119,.13);
 }
 
 @keyframes fadeIn{
-    to{opacity:1}
+
+    to{
+        opacity:1
+    }
 }
 
 @keyframes numberAppear{
+
     to{
+
         opacity:1;
+
         transform:scale(1);
     }
 }
 
 @keyframes ruleIn{
-    to{width:110px}
+
+    to{
+        width:110px
+    }
 }
 
 
 /* =========================================================
-   SCENES
+   ESCENAS
 ========================================================= */
 
 .scene{
+
     min-height:100svh;
+
     width:100%;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     position:relative;
@@ -373,6 +521,7 @@ button:focus{
 ========================================================= */
 
 .topbar{
+
     position:fixed;
 
     top:0;
@@ -384,7 +533,9 @@ button:focus{
     padding:18px 22px;
 
     display:flex;
+
     justify-content:space-between;
+
     align-items:center;
 
     pointer-events:none;
@@ -392,13 +543,18 @@ button:focus{
 
 .topbar-left,
 .topbar-right{
+
     font-family:"Cinzel",serif;
+
     font-size:8px;
+
     letter-spacing:4px;
+
     color:#756d65;
 }
 
 .topbar-right{
+
     color:#b28e5d;
 }
 
@@ -408,51 +564,71 @@ button:focus{
 ========================================================= */
 
 #hero{
+
     flex-direction:column;
+
     text-align:center;
 }
 
 .hero-kicker{
+
     font-family:"Cinzel",serif;
+
     font-size:9px;
+
     letter-spacing:7px;
+
     color:#b79563;
+
     margin-bottom:25px;
 }
 
 .hero-title{
-    font-family:"Playfair Display",serif;
-    font-size:clamp(42px,9vw,82px);
+
+    font-family:
+        "Playfair Display",serif;
+
+    font-size:
+        clamp(42px,9vw,82px);
+
     line-height:1.05;
+
     font-weight:400;
 }
 
 .hero-title em{
+
     color:#d7b476;
 }
 
 .hero-sub{
+
     max-width:600px;
 
-    margin:
-        30px auto 0;
+    margin:30px auto 0;
 
-    font-family:"Playfair Display",serif;
+    font-family:
+        "Playfair Display",serif;
+
     font-style:italic;
 
     font-size:19px;
+
     line-height:1.8;
 
     color:#bdb4aa;
 }
 
 .scroll-hint{
+
     margin-top:60px;
 
     font-family:"Cinzel",serif;
+
     color:#655e58;
 
     letter-spacing:5px;
+
     font-size:8px;
 
     animation:
@@ -460,48 +636,63 @@ button:focus{
 }
 
 @keyframes hint{
+
     0%,100%{
+
         opacity:.35;
+
         transform:translateY(0);
     }
 
     50%{
+
         opacity:.9;
+
         transform:translateY(8px);
     }
 }
 
 
 /* =========================================================
-   FLOWER SCENE
+   FLOWER
 ========================================================= */
 
 #flowerScene{
+
     flex-direction:column;
+
     overflow:hidden;
 }
 
 .flower-intro{
+
     text-align:center;
 
     max-width:700px;
 
     position:relative;
 
-    z-index:30;
+    z-index:20;
 }
 
 .eyebrow{
+
     font-family:"Cinzel",serif;
+
     font-size:9px;
+
     letter-spacing:6px;
+
     color:#b69562;
 }
 
 .flower-intro h2{
+
     margin-top:20px;
 
-    font-family:"Playfair Display",serif;
+    font-family:
+        "Playfair Display",serif;
+
     font-weight:400;
 
     font-size:
@@ -509,9 +700,11 @@ button:focus{
 }
 
 .flower-intro p{
+
     margin-top:15px;
 
     font-size:13px;
+
     color:#817970;
 }
 
@@ -521,17 +714,18 @@ button:focus{
 ========================================================= */
 
 .flower-stage{
+
     width:min(650px,98vw);
+
     height:min(650px,98vw);
 
     position:relative;
 
     margin-top:15px;
-
-    isolation:isolate;
 }
 
 .halo{
+
     position:absolute;
 
     left:50%;
@@ -546,6 +740,7 @@ button:focus{
     border-radius:50%;
 
     background:
+
         radial-gradient(
             circle,
             rgba(216,175,104,.2),
@@ -556,16 +751,15 @@ button:focus{
     filter:blur(3px);
 
     animation:
-        haloPulse 5s infinite ease-in-out;
-
-    pointer-events:none;
-
-    z-index:1;
+        haloPulse 5s
+        infinite
+        ease-in-out;
 }
 
 @keyframes haloPulse{
 
     0%,100%{
+
         transform:
             translate(-50%,-50%)
             scale(.8);
@@ -574,6 +768,7 @@ button:focus{
     }
 
     50%{
+
         transform:
             translate(-50%,-50%)
             scale(1.2);
@@ -588,6 +783,7 @@ button:focus{
 ========================================================= */
 
 .core{
+
     position:absolute;
 
     left:50%;
@@ -601,9 +797,10 @@ button:focus{
 
     border-radius:50%;
 
-    z-index:5;
+    z-index:20;
 
     background:
+
         radial-gradient(
             circle at 34% 28%,
             #fff0c9 0%,
@@ -614,17 +811,22 @@ button:focus{
         );
 
     box-shadow:
-        0 0 35px rgba(225,181,106,.35),
-        0 0 120px rgba(198,137,74,.18);
+
+        0 0 35px
+        rgba(225,181,106,.35),
+
+        0 0 120px
+        rgba(198,137,74,.18);
 
     animation:
-        coreBeat 3.5s infinite ease-in-out;
-
-    pointer-events:none;
+        coreBeat 3.5s
+        infinite
+        ease-in-out;
 }
 
 .core::before,
 .core::after{
+
     content:"";
 
     position:absolute;
@@ -633,28 +835,35 @@ button:focus{
 
     border-radius:50%;
 
-    border:1px solid rgba(218,177,108,.15);
+    border:
+        1px solid
+        rgba(218,177,108,.15);
 
     animation:
-        coreRing 4s infinite ease-out;
+        coreRing
+        4s
+        infinite
+        ease-out;
 }
 
 .core::after{
+
     inset:-45px;
 
-    animation-delay:
-        1.5s;
+    animation-delay:1.5s;
 }
 
 @keyframes coreBeat{
 
     0%,100%{
+
         transform:
             translate(-50%,-50%)
             scale(1);
     }
 
     50%{
+
         transform:
             translate(-50%,-50%)
             scale(1.08);
@@ -664,28 +873,36 @@ button:focus{
 @keyframes coreRing{
 
     0%{
+
         transform:scale(.7);
+
         opacity:.5;
     }
 
     100%{
+
         transform:scale(1.25);
+
         opacity:0;
     }
 }
 
 .core-label{
+
     position:absolute;
 
     inset:0;
 
     display:flex;
+
     align-items:center;
+
     justify-content:center;
 
     font-family:"Cinzel",serif;
 
     font-size:12px;
+
     letter-spacing:3px;
 
     color:#fff0cf;
@@ -693,29 +910,18 @@ button:focus{
 
 
 /* =========================================================
-   PETALS — NUEVA GEOMETRÍA TÁCTIL
+   PETAL
 ========================================================= */
 
 .petals{
+
     position:absolute;
 
     inset:0;
-
-    z-index:10;
-
-    pointer-events:none;
 }
 
-
-/*
-   IMPORTANTE:
-   Cada pétalo ahora se coloca en una circunferencia.
-   Ya no depende de un transform-origin compartido.
-   Esto evita que las áreas táctiles se monten unas
-   encima de otras en pantallas pequeñas.
-*/
-
 .petal{
+
     position:absolute;
 
     left:50%;
@@ -724,62 +930,30 @@ button:focus{
     width:70px;
     height:145px;
 
-    margin:0;
+    margin-left:-35px;
+    margin-top:-125px;
 
-    /*
-       El centro del botón se coloca a una distancia
-       fija del centro.
-    */
-
-    transform:
-        translate(-50%,-50%)
-        rotate(var(--angle))
-        translateY(-178px);
+    transform-origin:
+        50% 125px;
 
     cursor:pointer;
 
     z-index:10;
 
-    border:0;
-    background:transparent;
-
-    padding:0;
-
-    pointer-events:auto;
-
-    touch-action:manipulation;
-
     transition:
-        transform .75s
+
+        transform 1s
         cubic-bezier(.15,.8,.2,1),
-        opacity .5s,
+
+        opacity .6s,
+
         filter .5s;
-
-    /*
-       Evita que el navegador intente interpretar
-       el toque como scroll.
-    */
-
-    -webkit-user-select:none;
-    user-select:none;
 }
 
-
-/*
-   ÁREA VISUAL
-*/
-
 .petal-inner{
-    position:absolute;
 
-    left:50%;
-    top:50%;
-
-    width:70px;
-    height:145px;
-
-    transform:
-        translate(-50%,-50%);
+    height:100%;
+    width:100%;
 
     border-radius:
         70% 70% 48% 48%
@@ -787,6 +961,7 @@ button:focus{
         70% 70% 30% 30%;
 
     background:
+
         radial-gradient(
             ellipse at 50% 20%,
             rgba(247,218,164,.9),
@@ -795,11 +970,16 @@ button:focus{
         );
 
     border:
-        1px solid rgba(238,204,143,.24);
+        1px solid
+        rgba(238,204,143,.24);
 
     box-shadow:
-        inset 0 0 30px rgba(255,227,177,.08),
-        0 0 20px rgba(198,144,80,.08);
+
+        inset 0 0 30px
+        rgba(255,227,177,.08),
+
+        0 0 20px
+        rgba(198,144,80,.08);
 
     display:flex;
 
@@ -807,112 +987,83 @@ button:focus{
 
     padding-top:24px;
 
-    pointer-events:none;
-
-    transition:.6s;
+    transition:.7s;
 }
 
+.petal:hover{
 
-/*
-   ÁREA TÁCTIL INVISIBLE.
-   Es ligeramente mayor que el pétalo visual,
-   pero sigue separada de los demás.
-*/
+    filter:brightness(1.35);
+}
 
-.petal::before{
-    content:"";
+.petal:hover .petal-inner{
 
-    position:absolute;
+    box-shadow:
 
-    left:50%;
-    top:50%;
+        0 0 40px
+        rgba(221,175,95,.25),
 
-    width:76px;
-    height:118px;
+        inset 0 0 30px
+        rgba(255,230,180,.12);
+}
 
-    transform:
-        translate(-50%,-50%);
+.petal.opened{
 
-    border-radius:50%;
+    opacity:.3;
 
-    background:transparent;
-
-    pointer-events:auto;
+    filter:saturate(.5);
 }
 
 .petal-number{
+
     font-family:"Cinzel",serif;
 
     color:#f8deb0;
 
     font-size:10px;
-
-    position:relative;
-
-    z-index:2;
 }
-
-.petal:hover .petal-inner,
-.petal:active .petal-inner{
-
-    box-shadow:
-        0 0 40px rgba(221,175,95,.25),
-        inset 0 0 30px rgba(255,230,180,.12);
-
-    filter:brightness(1.25);
-}
-
-.petal.opened{
-    opacity:.38;
-}
-
-
-/*
-   11 ÁNGULOS
-*/
 
 .petal:nth-child(1){
-    --angle:0deg;
+    transform:rotate(0deg)
 }
 
 .petal:nth-child(2){
-    --angle:32.727deg;
+    transform:rotate(32.72deg)
 }
 
 .petal:nth-child(3){
-    --angle:65.454deg;
+    transform:rotate(65.45deg)
 }
 
 .petal:nth-child(4){
-    --angle:98.181deg;
+    transform:rotate(98.18deg)
 }
 
 .petal:nth-child(5){
-    --angle:130.908deg;
+    transform:rotate(130.9deg)
 }
 
 .petal:nth-child(6){
-    --angle:163.635deg;
+    transform:rotate(163.63deg)
 }
 
 .petal:nth-child(7){
-    --angle:196.362deg;
+    transform:rotate(196.36deg)
 }
 
 .petal:nth-child(8){
-    --angle:229.089deg;
+    transform:rotate(229.09deg)
 }
 
 .petal:nth-child(9){
-    --angle:261.816deg;
+    transform:rotate(261.81deg)
 }
 
 .petal:nth-child(10){
-    --angle:294.543deg;
+    transform:rotate(294.54deg)
 }
 
 .petal:nth-child(11){
-    --angle:327.270deg;
+    transform:rotate(327.27deg)
 }
 
 
@@ -921,6 +1072,7 @@ button:focus{
 ========================================================= */
 
 .progress{
+
     display:flex;
 
     justify-content:center;
@@ -935,6 +1087,7 @@ button:focus{
 }
 
 .progress span{
+
     width:5px;
     height:5px;
 
@@ -946,18 +1099,21 @@ button:focus{
 }
 
 .progress span.active{
+
     background:#d9b777;
 
     box-shadow:
-        0 0 12px rgba(217,183,119,.7);
+        0 0 12px
+        rgba(217,183,119,.7);
 }
 
 
 /* =========================================================
-   PETAL OVERLAY
+   MODAL
 ========================================================= */
 
 .overlay{
+
     position:fixed;
 
     inset:0;
@@ -967,11 +1123,13 @@ button:focus{
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
     padding:25px;
 
     background:
+
         radial-gradient(
             circle at center,
             rgba(93,52,54,.28),
@@ -988,11 +1146,14 @@ button:focus{
 }
 
 .overlay.show{
+
     opacity:1;
+
     visibility:visible;
 }
 
 .modal{
+
     width:min(650px,95vw);
 
     text-align:center;
@@ -1007,10 +1168,12 @@ button:focus{
 }
 
 .overlay.show .modal{
+
     transform:none;
 }
 
 .modal-symbol{
+
     width:80px;
     height:80px;
 
@@ -1021,16 +1184,20 @@ button:focus{
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
     border:
-        1px solid rgba(215,180,119,.25);
+        1px solid
+        rgba(215,180,119,.25);
 
     box-shadow:
-        0 0 50px rgba(215,180,119,.08);
+        0 0 50px
+        rgba(215,180,119,.08);
 }
 
 .modal-symbol span{
+
     font-family:"Cinzel",serif;
 
     color:#dfbd7e;
@@ -1039,6 +1206,7 @@ button:focus{
 }
 
 .modal-number{
+
     margin-top:28px;
 
     font-family:"Cinzel",serif;
@@ -1051,9 +1219,11 @@ button:focus{
 }
 
 .modal h2{
+
     margin:18px 0 25px;
 
-    font-family:"Playfair Display",serif;
+    font-family:
+        "Playfair Display",serif;
 
     font-size:
         clamp(38px,9vw,65px);
@@ -1062,7 +1232,9 @@ button:focus{
 }
 
 .modal p{
-    font-family:"Playfair Display",serif;
+
+    font-family:
+        "Playfair Display",serif;
 
     font-size:18px;
 
@@ -1072,12 +1244,14 @@ button:focus{
 }
 
 .modal-close{
+
     margin-top:35px;
 
     background:none;
 
     border:
-        1px solid rgba(215,180,119,.3);
+        1px solid
+        rgba(215,180,119,.3);
 
     color:#d4b47d;
 
@@ -1094,17 +1268,20 @@ button:focus{
 
 
 /* =========================================================
-   CINEMATIC TEXT
+   CINEMÁTICA
 ========================================================= */
 
 .cinematic{
+
     text-align:center;
 
     max-width:850px;
 }
 
 .cinematic .big{
-    font-family:"Playfair Display",serif;
+
+    font-family:
+        "Playfair Display",serif;
 
     font-size:
         clamp(43px,9vw,82px);
@@ -1115,15 +1292,18 @@ button:focus{
 }
 
 .cinematic .big em{
+
     color:#d6b172;
 }
 
 .cinematic p{
+
     max-width:650px;
 
     margin:30px auto 0;
 
-    font-family:"Playfair Display",serif;
+    font-family:
+        "Playfair Display",serif;
 
     font-style:italic;
 
@@ -1135,10 +1315,12 @@ button:focus{
 }
 
 .continue{
+
     margin-top:45px;
 
     border:
-        1px solid rgba(215,180,119,.35);
+        1px solid
+        rgba(215,180,119,.35);
 
     background:
         rgba(255,255,255,.02);
@@ -1156,23 +1338,24 @@ button:focus{
     cursor:pointer;
 
     transition:.5s;
-
-    touch-action:manipulation;
 }
 
 .continue:hover{
+
     transform:translateY(-4px);
 
     box-shadow:
-        0 0 55px rgba(215,180,119,.12);
+        0 0 55px
+        rgba(215,180,119,.12);
 }
 
 
 /* =========================================================
-   FUTURE DREAMS
+   FUTURO
 ========================================================= */
 
 .future-list{
+
     margin:55px auto 0;
 
     width:min(700px,94vw);
@@ -1186,14 +1369,17 @@ button:focus{
 }
 
 .future-card{
+
     min-height:130px;
 
     padding:25px 20px;
 
     border:
-        1px solid rgba(215,180,119,.12);
+        1px solid
+        rgba(215,180,119,.12);
 
     background:
+
         linear-gradient(
             145deg,
             rgba(255,255,255,.035),
@@ -1205,6 +1391,7 @@ button:focus{
     flex-direction:column;
 
     align-items:center;
+
     justify-content:center;
 
     text-align:center;
@@ -1213,6 +1400,7 @@ button:focus{
 }
 
 .future-card:hover{
+
     transform:translateY(-5px);
 
     border-color:
@@ -1223,6 +1411,7 @@ button:focus{
 }
 
 .future-card span{
+
     color:#d4ae70;
 
     font-family:"Cinzel",serif;
@@ -1233,9 +1422,11 @@ button:focus{
 }
 
 .future-card p{
+
     margin-top:10px;
 
-    font-family:"Playfair Display",serif;
+    font-family:
+        "Playfair Display",serif;
 
     color:#c8beb4;
 
@@ -1246,224 +1437,864 @@ button:focus{
 
 
 /* =========================================================
-   ENVELOPE — RECONSTRUIDO
+   NUEVA ESCENA:
+   LAS FOTOS DE AYER
 ========================================================= */
 
-.envelope-scene{
+#photoScene{
+
+    min-height:100svh;
+
+    flex-direction:column;
+
     text-align:center;
+
+    overflow:hidden;
+
+    position:relative;
 }
 
-.envelope{
-    width:min(390px,88vw);
 
-    height:300px;
+/* Luz detrás */
 
-    margin:
-        50px auto 0;
+.photo-aura{
+
+    position:absolute;
+
+    width:520px;
+    height:520px;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(172,108,91,.18),
+            rgba(113,57,67,.08) 35%,
+            transparent 70%
+        );
+
+    filter:blur(25px);
+
+    animation:
+        photoAura 7s
+        ease-in-out
+        infinite;
+}
+
+@keyframes photoAura{
+
+    0%,100%{
+
+        transform:
+            translate(-50%,-50%)
+            scale(.85);
+
+        opacity:.5;
+    }
+
+    50%{
+
+        transform:
+            translate(-50%,-50%)
+            scale(1.15);
+
+        opacity:1;
+    }
+}
+
+
+/* Encabezado */
+
+.photo-heading{
+
+    position:relative;
+
+    z-index:5;
+
+    max-width:700px;
+
+    margin-bottom:45px;
+}
+
+.photo-heading .eyebrow{
+
+    margin-bottom:22px;
+}
+
+.photo-heading h2{
+
+    font-family:
+        "Playfair Display",serif;
+
+    font-size:
+        clamp(38px,8vw,68px);
+
+    line-height:1.08;
+
+    font-weight:400;
+}
+
+.photo-heading h2 em{
+
+    color:#d6b172;
+}
+
+.photo-heading p{
+
+    margin:25px auto 0;
+
+    max-width:590px;
+
+    font-family:
+        "Playfair Display",serif;
+
+    font-style:italic;
+
+    color:#aaa198;
+
+    font-size:17px;
+
+    line-height:1.8;
+}
+
+
+/* =========================================================
+   GALERÍA
+========================================================= */
+
+.photo-gallery{
+
+    position:relative;
+
+    z-index:5;
+
+    width:min(1000px,94vw);
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:18px;
+
+    align-items:center;
+}
+
+
+/* Tarjetas */
+
+.photo-card{
 
     position:relative;
 
     cursor:pointer;
 
-    perspective:1200px;
+    opacity:0;
 
-    isolation:isolate;
+    transform:
+        translateY(55px)
+        scale(.92);
 
-    touch-action:manipulation;
+    animation:
+        photoReveal
+        1.3s
+        forwards;
+
+    transition:
+
+        transform .7s
+        cubic-bezier(.16,.8,.2,1),
+
+        filter .7s,
+
+        opacity .7s;
+}
+
+.photo-card:nth-child(1){
+
+    animation-delay:.3s;
+}
+
+.photo-card:nth-child(2){
+
+    animation-delay:.7s;
+
+    margin-top:35px;
+}
+
+.photo-card:nth-child(3){
+
+    animation-delay:1.1s;
+
+    margin-top:-25px;
+}
+
+.photo-card:nth-child(4){
+
+    animation-delay:1.5s;
+
+    margin-top:25px;
+}
+
+@keyframes photoReveal{
+
+    to{
+
+        opacity:1;
+
+        transform:
+            translateY(0)
+            scale(1);
+    }
 }
 
 
-/*
-   Base del sobre
-*/
+/* Marco */
+
+.photo-frame{
+
+    position:relative;
+
+    padding:7px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            rgba(239,210,164,.45),
+            rgba(112,67,65,.25),
+            rgba(239,210,164,.15)
+        );
+
+    box-shadow:
+
+        0 25px 70px
+        rgba(0,0,0,.45),
+
+        0 0 30px
+        rgba(215,180,119,.04);
+
+    transition:.7s;
+}
+
+.photo-frame::before{
+
+    content:"";
+
+    position:absolute;
+
+    inset:-1px;
+
+    border:
+        1px solid
+        rgba(238,204,143,.18);
+
+    pointer-events:none;
+}
+
+
+/* Imagen */
+
+.photo-frame img{
+
+    display:block;
+
+    width:100%;
+
+    aspect-ratio:3/4;
+
+    object-fit:cover;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #21161b,
+            #0c090d
+        );
+
+    filter:
+        saturate(.92)
+        contrast(1.02);
+
+    transition:
+
+        transform 1s
+        cubic-bezier(.16,.8,.2,1),
+
+        filter 1s;
+}
+
+
+/* Número */
+
+.photo-number{
+
+    position:absolute;
+
+    left:12px;
+
+    bottom:12px;
+
+    z-index:3;
+
+    width:29px;
+    height:29px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:
+        rgba(3,3,6,.72);
+
+    border:
+        1px solid
+        rgba(215,180,119,.4);
+
+    backdrop-filter:blur(8px);
+
+    color:#e1c28b;
+
+    font-family:"Cinzel",serif;
+
+    font-size:8px;
+
+    letter-spacing:1px;
+}
+
+
+/* Brillo */
+
+.photo-shine{
+
+    position:absolute;
+
+    inset:7px;
+
+    z-index:2;
+
+    pointer-events:none;
+
+    background:
+
+        linear-gradient(
+            125deg,
+            rgba(255,255,255,.18),
+            transparent 28%,
+            transparent 70%,
+            rgba(215,180,119,.08)
+        );
+
+    opacity:.25;
+
+    transition:.7s;
+}
+
+
+/* Hover */
+
+.photo-card:hover{
+
+    transform:
+        translateY(-12px)
+        scale(1.025);
+
+    filter:brightness(1.1);
+}
+
+.photo-card:hover .photo-frame{
+
+    box-shadow:
+
+        0 35px 90px
+        rgba(0,0,0,.55),
+
+        0 0 50px
+        rgba(215,180,119,.13);
+}
+
+.photo-card:hover img{
+
+    transform:scale(1.04);
+
+    filter:
+        saturate(1)
+        contrast(1.04);
+}
+
+.photo-card:hover .photo-shine{
+
+    opacity:.45;
+}
+
+
+/* =========================================================
+   MENSAJE DEBAJO DE LAS FOTOS
+========================================================= */
+
+.photo-message{
+
+    position:relative;
+
+    z-index:5;
+
+    max-width:720px;
+
+    margin-top:55px;
+
+    opacity:0;
+
+    transform:translateY(20px);
+
+    animation:
+        messageAppear
+        1.5s
+        2.1s
+        forwards;
+}
+
+@keyframes messageAppear{
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+    }
+}
+
+.photo-message .small{
+
+    font-family:"Cinzel",serif;
+
+    color:#9e8055;
+
+    letter-spacing:5px;
+
+    font-size:8px;
+}
+
+.photo-message p{
+
+    margin-top:18px;
+
+    font-family:
+        "Playfair Display",serif;
+
+    font-style:italic;
+
+    color:#c7bdb3;
+
+    font-size:18px;
+
+    line-height:1.9;
+}
+
+.photo-message strong{
+
+    color:#ead09e;
+
+    font-weight:400;
+}
+
+
+/* =========================================================
+   INDICADOR
+========================================================= */
+
+.photo-hint{
+
+    margin-top:28px;
+
+    font-family:"Cinzel",serif;
+
+    color:#615a54;
+
+    font-size:8px;
+
+    letter-spacing:4px;
+
+    animation:
+        photoHint 2.5s
+        infinite;
+}
+
+@keyframes photoHint{
+
+    0%,100%{
+        opacity:.35;
+    }
+
+    50%{
+        opacity:.9;
+    }
+}
+
+
+/* =========================================================
+   VISOR DE FOTO
+========================================================= */
+
+.photo-lightbox{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:4000;
+
+    background:
+
+        radial-gradient(
+            circle at center,
+            rgba(101,57,61,.22),
+            rgba(2,2,5,.97) 72%
+        );
+
+    backdrop-filter:
+        blur(22px);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:20px;
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:.7s;
+}
+
+.photo-lightbox.show{
+
+    opacity:1;
+
+    visibility:visible;
+}
+
+.lightbox-content{
+
+    width:min(500px,90vw);
+
+    position:relative;
+
+    transform:
+        translateY(35px)
+        scale(.9);
+
+    transition:
+        .9s
+        cubic-bezier(.16,.8,.2,1);
+
+    text-align:center;
+}
+
+.photo-lightbox.show
+.lightbox-content{
+
+    transform:none;
+}
+
+.lightbox-image{
+
+    padding:8px;
+
+    background:
+
+        linear-gradient(
+            145deg,
+            #ead3aa,
+            #6f4448,
+            #d4b274
+        );
+
+    box-shadow:
+
+        0 40px 100px
+        rgba(0,0,0,.65),
+
+        0 0 70px
+        rgba(215,180,119,.12);
+}
+
+.lightbox-image img{
+
+    display:block;
+
+    width:100%;
+
+    max-height:72svh;
+
+    object-fit:contain;
+
+    background:#050407;
+}
+
+.lightbox-caption{
+
+    margin-top:25px;
+
+    font-family:
+        "Playfair Display",serif;
+
+    font-style:italic;
+
+    color:#cfc3b7;
+
+    font-size:16px;
+
+    line-height:1.7;
+}
+
+.lightbox-close{
+
+    margin-top:25px;
+
+    padding:11px 27px;
+
+    border:
+        1px solid
+        rgba(215,180,119,.3);
+
+    border-radius:100px;
+
+    background:transparent;
+
+    color:#d9bb82;
+
+    letter-spacing:3px;
+
+    font-size:8px;
+
+    cursor:pointer;
+}
+
+
+/* =========================================================
+   REVELACIÓN FINAL DE FOTOS
+========================================================= */
+
+.photo-reveal-message{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:4500;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:30px;
+
+    text-align:center;
+
+    background:
+
+        radial-gradient(
+            circle,
+            rgba(101,57,61,.25),
+            rgba(2,2,5,.98) 70%
+        );
+
+    backdrop-filter:blur(18px);
+
+    opacity:0;
+
+    visibility:hidden;
+
+    transition:1s;
+}
+
+.photo-reveal-message.show{
+
+    opacity:1;
+
+    visibility:visible;
+}
+
+.photo-reveal-inner{
+
+    max-width:700px;
+
+    transform:
+        translateY(30px)
+        scale(.95);
+
+    transition:
+        1s
+        cubic-bezier(.16,.8,.2,1);
+}
+
+.photo-reveal-message.show
+.photo-reveal-inner{
+
+    transform:none;
+}
+
+.reveal-symbol{
+
+    width:80px;
+    height:80px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(215,180,119,.3);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    color:#e0bd7b;
+
+    font-size:24px;
+
+    box-shadow:
+        0 0 60px
+        rgba(215,180,119,.1);
+
+    animation:
+        revealPulse 3s
+        infinite;
+}
+
+@keyframes revealPulse{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.08);
+    }
+}
+
+.photo-reveal-inner .eyebrow{
+
+    margin-top:35px;
+}
+
+.photo-reveal-inner h2{
+
+    margin-top:20px;
+
+    font-family:
+        "Playfair Display",serif;
+
+    font-size:
+        clamp(37px,8vw,65px);
+
+    font-weight:400;
+
+    line-height:1.08;
+}
+
+.photo-reveal-inner h2 em{
+
+    color:#d7b476;
+}
+
+.photo-reveal-inner p{
+
+    margin:30px auto 0;
+
+    max-width:620px;
+
+    font-family:
+        "Playfair Display",serif;
+
+    font-style:italic;
+
+    color:#c6bcb2;
+
+    font-size:18px;
+
+    line-height:1.9;
+}
+
+.photo-reveal-inner strong{
+
+    color:#ead09e;
+
+    font-weight:400;
+}
+
+
+/* =========================================================
+   SOBRE
+========================================================= */
+
+.envelope-scene{
+
+    text-align:center;
+}
+
+.envelope{
+
+    width:min(360px,85vw);
+
+    height:250px;
+
+    margin:45px auto 0;
+
+    position:relative;
+
+    cursor:pointer;
+
+    perspective:1000px;
+}
 
 .envelope-back{
+
     position:absolute;
 
     inset:0;
 
-    z-index:1;
-
     background:
+
         linear-gradient(
             145deg,
-            #3a242b,
-            #181015
+            #342126,
+            #171015
         );
 
     border:
-        1px solid rgba(215,180,119,.22);
+        1px solid
+        rgba(215,180,119,.2);
 
     box-shadow:
-        0 30px 80px rgba(0,0,0,.55);
-
-    overflow:hidden;
+        0 30px 80px
+        rgba(0,0,0,.45);
 }
-
-
-/*
-   Triángulo decorativo inferior izquierdo
-*/
-
-.envelope-back::before{
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    bottom:0;
-
-    width:0;
-    height:0;
-
-    border-left:
-        195px solid #2a191f;
-
-    border-top:
-        150px solid transparent;
-}
-
-
-/*
-   Triángulo decorativo inferior derecho
-*/
-
-.envelope-back::after{
-    content:"";
-
-    position:absolute;
-
-    right:0;
-    bottom:0;
-
-    width:0;
-    height:0;
-
-    border-right:
-        195px solid #24161c;
-
-    border-top:
-        150px solid transparent;
-}
-
-
-/*
-   CARTA
-   Queda encima del cuerpo del sobre.
-*/
-
-.envelope-letter{
-    position:absolute;
-
-    left:8%;
-    right:8%;
-
-    bottom:18px;
-
-    min-height:220px;
-
-    background:
-        linear-gradient(
-            145deg,
-            #f2e7d3,
-            #e6d7bf
-        );
-
-    color:#31251e;
-
-    padding:
-        30px 27px 28px;
-
-    z-index:4;
-
-    border:
-        1px solid rgba(91,64,42,.15);
-
-    box-shadow:
-        0 15px 35px rgba(0,0,0,.28);
-
-    transform:
-        translateY(0);
-
-    transition:
-        transform 1.25s
-        cubic-bezier(.16,.8,.2,1),
-        box-shadow 1s;
-
-    /*
-       Cerrada: solo asoma una pequeña parte.
-    */
-
-    clip-path:
-        inset(150px 0 0 0);
-}
-
-
-/*
-   Cuando abre:
-   la carta sale completamente.
-*/
-
-.envelope.open .envelope-letter{
-
-    transform:
-        translateY(-155px);
-
-    clip-path:
-        inset(0 0 0 0);
-
-    box-shadow:
-        0 35px 80px rgba(0,0,0,.5);
-}
-
-
-/*
-   TITULO DE LA CARTA
-*/
-
-.envelope-letter h3{
-    font-family:"Cinzel",serif;
-
-    font-size:12px;
-
-    letter-spacing:2px;
-
-    color:#674c3d;
-}
-
-
-/*
-   TEXTO
-*/
-
-.envelope-letter p{
-    margin-top:18px;
-
-    font-family:"Playfair Display",serif;
-
-    font-style:italic;
-
-    font-size:15px;
-
-    line-height:1.75;
-
-    color:#46362d;
-}
-
-.envelope-letter p:last-child{
-    margin-top:22px;
-
-    font-size:17px;
-
-    color:#68454a;
-}
-
-
-/*
-   SOLAPA
-*/
 
 .envelope-flap{
+
     position:absolute;
 
     left:0;
@@ -1473,74 +2304,87 @@ button:focus{
     height:0;
 
     border-left:
-        195px solid transparent;
+        180px solid transparent;
 
     border-right:
-        195px solid transparent;
+        180px solid transparent;
 
     border-top:
-        145px solid #59363e;
+        130px solid #53333a;
 
     transform-origin:
         top center;
 
-    transform:
-        rotateX(0deg);
-
     transition:
-        transform 1.1s
+        transform 1s
         cubic-bezier(.16,.8,.2,1);
 
-    z-index:6;
-
-    filter:
-        drop-shadow(
-            0 5px 8px rgba(0,0,0,.2)
-        );
-
-    pointer-events:none;
+    z-index:5;
 }
 
-
-/*
-   AL ABRIR:
-   la solapa gira y pasa detrás de la carta.
-*/
-
-.envelope.open .envelope-flap{
+.envelope.open
+.envelope-flap{
 
     transform:
         rotateX(180deg);
-
-    z-index:2;
 }
 
-
-/*
-   BORDE DECORATIVO DE LA SOLAPA
-*/
-
-.envelope-flap::after{
-    content:"";
+.envelope-letter{
 
     position:absolute;
 
-    width:300px;
-    height:1px;
+    left:12%;
+    right:12%;
 
-    background:
-        rgba(235,202,142,.12);
+    bottom:15px;
 
-    left:-150px;
-    top:-2px;
+    height:190px;
+
+    background:#e9dcc7;
+
+    color:#31251e;
+
+    padding:28px 20px;
+
+    z-index:2;
+
+    transition:
+        transform 1.2s
+        cubic-bezier(.16,.8,.2,1);
 }
 
+.envelope.open
+.envelope-letter{
 
-/*
-   SELLO
-*/
+    transform:
+        translateY(-120px);
+}
+
+.envelope-letter h3{
+
+    font-family:"Cinzel",serif;
+
+    font-size:12px;
+
+    letter-spacing:2px;
+}
+
+.envelope-letter p{
+
+    margin-top:15px;
+
+    font-family:
+        "Playfair Display",serif;
+
+    font-style:italic;
+
+    font-size:13px;
+
+    line-height:1.6;
+}
 
 .seal{
+
     position:absolute;
 
     left:50%;
@@ -1549,72 +2393,41 @@ button:focus{
     transform:
         translate(-50%,-50%);
 
-    width:64px;
-    height:64px;
+    width:60px;
+    height:60px;
 
     border-radius:50%;
 
-    background:
-        radial-gradient(
-            circle at 35% 30%,
-            #a76570,
-            #733e48 55%,
-            #512c34
-        );
+    background:#7c424b;
 
-    border:
-        3px solid #4d2931;
+    border:3px solid #4d2931;
 
     box-shadow:
-        0 5px 25px rgba(0,0,0,.45),
-        0 0 25px rgba(170,101,91,.15);
+        0 5px 20px
+        rgba(0,0,0,.35);
 
     z-index:10;
 
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
     color:#edcf98;
 
-    font-size:21px;
+    font-size:20px;
 
-    transition:
-        opacity .5s,
-        transform .6s;
+    transition:.5s;
 }
 
 .envelope.open .seal{
+
     opacity:0;
 
     transform:
         translate(-50%,-50%)
-        scale(.4);
-}
-
-
-/*
-   TEXTO DE "TOCA PARA ABRIR"
-*/
-
-.envelope-hint{
-    margin-top:22px;
-
-    font-family:"Cinzel",serif;
-
-    font-size:8px;
-
-    letter-spacing:4px;
-
-    color:#7d7168;
-
-    transition:
-        opacity .5s;
-}
-
-.envelope.open + .envelope-hint{
-    opacity:0;
+        scale(.5);
 }
 
 
@@ -1623,10 +2436,12 @@ button:focus{
 ========================================================= */
 
 .number-scene{
+
     text-align:center;
 }
 
 .big365{
+
     font-family:"Cinzel",serif;
 
     font-size:
@@ -1637,16 +2452,20 @@ button:focus{
     color:transparent;
 
     -webkit-text-stroke:
-        1px rgba(215,180,119,.55);
+        1px
+        rgba(215,180,119,.55);
 
     text-shadow:
-        0 0 80px rgba(215,180,119,.1);
+        0 0 80px
+        rgba(215,180,119,.1);
 }
 
 .number-scene h2{
+
     margin-top:55px;
 
-    font-family:"Playfair Display",serif;
+    font-family:
+        "Playfair Display",serif;
 
     font-size:
         clamp(31px,7vw,58px);
@@ -1655,11 +2474,13 @@ button:focus{
 }
 
 .number-scene p{
+
     max-width:600px;
 
     margin:25px auto 0;
 
-    font-family:"Playfair Display",serif;
+    font-family:
+        "Playfair Display",serif;
 
     font-style:italic;
 
@@ -1672,17 +2493,20 @@ button:focus{
 
 
 /* =========================================================
-   PROMISE
+   PROMESA
 ========================================================= */
 
 .promise{
+
     max-width:850px;
 
     text-align:center;
 }
 
 .promise h2{
-    font-family:"Playfair Display",serif;
+
+    font-family:
+        "Playfair Display",serif;
 
     font-size:
         clamp(42px,9vw,75px);
@@ -1693,17 +2517,21 @@ button:focus{
 }
 
 .promise h2 span{
+
     color:#d7b475;
 }
 
 .promise-lines{
+
     margin-top:45px;
 }
 
 .promise-line{
+
     margin:18px 0;
 
-    font-family:"Playfair Display",serif;
+    font-family:
+        "Playfair Display",serif;
 
     font-size:18px;
 
@@ -1711,6 +2539,7 @@ button:focus{
 }
 
 .promise-line strong{
+
     color:#ead2a4;
 
     font-weight:400;
@@ -1718,16 +2547,18 @@ button:focus{
 
 
 /* =========================================================
-   QUESTION
+   PREGUNTA
 ========================================================= */
 
 .question{
+
     text-align:center;
 
     max-width:800px;
 }
 
 .question-small{
+
     font-family:"Cinzel",serif;
 
     font-size:9px;
@@ -1738,9 +2569,11 @@ button:focus{
 }
 
 .question h2{
+
     margin:35px 0;
 
-    font-family:"Playfair Display",serif;
+    font-family:
+        "Playfair Display",serif;
 
     font-size:
         clamp(43px,9vw,80px);
@@ -1751,15 +2584,18 @@ button:focus{
 }
 
 .question h2 em{
+
     color:#d6b173;
 }
 
 .question p{
+
     max-width:600px;
 
     margin:auto;
 
-    font-family:"Playfair Display",serif;
+    font-family:
+        "Playfair Display",serif;
 
     font-style:italic;
 
@@ -1771,6 +2607,7 @@ button:focus{
 }
 
 .answers{
+
     margin-top:50px;
 
     display:flex;
@@ -1783,10 +2620,12 @@ button:focus{
 }
 
 .answer{
+
     padding:17px 30px;
 
     border:
-        1px solid rgba(215,180,119,.35);
+        1px solid
+        rgba(215,180,119,.35);
 
     background:
         rgba(255,255,255,.02);
@@ -1805,13 +2644,15 @@ button:focus{
 }
 
 .answer:hover{
+
     transform:translateY(-5px);
 
     background:
         rgba(215,180,119,.08);
 
     box-shadow:
-        0 0 55px rgba(215,180,119,.13);
+        0 0 55px
+        rgba(215,180,119,.13);
 }
 
 
@@ -1820,10 +2661,12 @@ button:focus{
 ========================================================= */
 
 #finalScene{
+
     text-align:center;
 }
 
 .final-aura{
+
     position:absolute;
 
     width:400px;
@@ -1832,6 +2675,7 @@ button:focus{
     border-radius:50%;
 
     background:
+
         radial-gradient(
             circle,
             rgba(213,170,98,.16),
@@ -1847,17 +2691,22 @@ button:focus{
 @keyframes finalAura{
 
     0%,100%{
+
         transform:scale(.8);
+
         opacity:.4;
     }
 
     50%{
+
         transform:scale(1.2);
+
         opacity:1;
     }
 }
 
 .final-content{
+
     position:relative;
 
     z-index:2;
@@ -1866,6 +2715,7 @@ button:focus{
 }
 
 .final-heart{
+
     width:120px;
     height:120px;
 
@@ -1876,9 +2726,11 @@ button:focus{
     display:flex;
 
     align-items:center;
+
     justify-content:center;
 
     background:
+
         radial-gradient(
             circle at 35% 30%,
             #fff0c8,
@@ -1888,14 +2740,19 @@ button:focus{
         );
 
     box-shadow:
-        0 0 45px rgba(219,177,103,.35),
-        0 0 150px rgba(198,133,70,.15);
+
+        0 0 45px
+        rgba(219,177,103,.35),
+
+        0 0 150px
+        rgba(198,133,70,.15);
 
     animation:
         finalHeart 3s infinite;
 }
 
 .final-heart::after{
+
     content:"♥";
 
     font-size:45px;
@@ -1915,10 +2772,11 @@ button:focus{
 }
 
 .final-content h2{
-    margin:
-        50px 0 25px;
 
-    font-family:"Playfair Display",serif;
+    margin:50px 0 25px;
+
+    font-family:
+        "Playfair Display",serif;
 
     font-weight:400;
 
@@ -1927,12 +2785,14 @@ button:focus{
 }
 
 .final-content p{
+
     max-width:650px;
 
     margin:
         0 auto 20px;
 
-    font-family:"Playfair Display",serif;
+    font-family:
+        "Playfair Display",serif;
 
     font-style:italic;
 
@@ -1944,10 +2804,12 @@ button:focus{
 }
 
 .final-names{
+
     margin-top:65px;
 }
 
 .final-names strong{
+
     display:block;
 
     font-family:"Cinzel",serif;
@@ -1962,6 +2824,7 @@ button:focus{
 }
 
 .final-names span{
+
     display:block;
 
     color:#67615c;
@@ -1976,211 +2839,179 @@ button:focus{
    MOBILE
 ========================================================= */
 
-@media(max-width:600px){
+@media(max-width:700px){
 
     .topbar{
+
         padding:15px;
     }
 
 
-    /* -------------------------
-       FLOWER
-    ------------------------- */
+    /* FLORES */
 
     .flower-stage{
 
-        width:410px;
         height:410px;
+
+        width:410px;
 
         max-width:100vw;
     }
 
     .core{
+
         width:92px;
         height:92px;
     }
 
     .halo{
+
         width:230px;
         height:230px;
     }
 
-
-    /*
-       En móvil los pétalos están
-       suficientemente separados.
-    */
-
     .petal{
 
-        width:58px;
-        height:112px;
+        width:54px;
 
-        transform:
-            translate(-50%,-50%)
-            rotate(var(--angle))
-            translateY(-132px);
-    }
+        height:110px;
 
-    .petal-inner{
+        margin-left:-27px;
 
-        width:58px;
-        height:112px;
+        margin-top:-95px;
 
-        padding-top:20px;
-    }
-
-    .petal::before{
-
-        width:70px;
-        height:108px;
+        transform-origin:
+            50% 95px;
     }
 
     .petal-number{
+
         font-size:8px;
     }
 
 
-    /* -------------------------
-       FUTURO
-    ------------------------- */
+    /* FUTURO */
 
     .future-list{
+
         grid-template-columns:1fr;
     }
 
     .future-card{
+
         min-height:100px;
     }
 
 
-    /* -------------------------
-       SOBRE
-    ------------------------- */
+    /* SOBRE */
 
     .envelope{
 
-        width:
-            min(360px,88vw);
-
-        height:275px;
-
-        margin-top:40px;
-    }
-
-    .envelope-flap{
-
-        border-left-width:
-            calc(min(360px,88vw) / 2);
-
-        border-right-width:
-            calc(min(360px,88vw) / 2);
-
-        border-top-width:
-            132px;
-    }
-
-    .envelope-back::before{
-
-        border-left-width:
-            calc(min(360px,88vw) / 2);
-    }
-
-    .envelope-back::after{
-
-        border-right-width:
-            calc(min(360px,88vw) / 2);
-    }
-
-    .envelope-letter{
-
-        left:7%;
-        right:7%;
-
-        min-height:210px;
-
-        padding:
-            28px 22px;
-
-        clip-path:
-            inset(138px 0 0 0);
-    }
-
-    .envelope.open .envelope-letter{
-
-        transform:
-            translateY(-145px);
-
-        clip-path:
-            inset(0 0 0 0);
-    }
-
-    .envelope-letter p{
-
-        font-size:14px;
-
-        line-height:1.7;
-    }
-
-    .envelope-letter p:last-child{
-
-        font-size:16px;
-
-        margin-top:18px;
-    }
-
-    .seal{
-
-        width:58px;
-        height:58px;
-
-        font-size:19px;
-    }
-
-    .envelope-hint{
-
-        margin-top:18px;
-
-        font-size:7px;
-
-        letter-spacing:3px;
+        transform:scale(.82);
     }
 
 
-    /* -------------------------
-       MODAL
-    ------------------------- */
-
-    .modal{
-
-        width:
-            min(92vw,500px);
-    }
+    /* MODAL */
 
     .modal p{
 
         font-size:16px;
-
-        line-height:1.8;
     }
 
 
-    /* -------------------------
-       PROMISE
-    ------------------------- */
+    /* =====================================================
+       FOTOS EN MÓVIL
+    ===================================================== */
 
-    .promise-line{
+    #photoScene{
+
+        padding-top:85px;
+
+        padding-bottom:70px;
+    }
+
+    .photo-heading{
+
+        margin-bottom:35px;
+    }
+
+    .photo-heading p{
+
+        font-size:15px;
+
+        padding:0 10px;
+    }
+
+    .photo-gallery{
+
+        width:min(500px,88vw);
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+        gap:14px;
+    }
+
+    .photo-card:nth-child(1){
+
+        margin-top:0;
+    }
+
+    .photo-card:nth-child(2){
+
+        margin-top:28px;
+    }
+
+    .photo-card:nth-child(3){
+
+        margin-top:-15px;
+    }
+
+    .photo-card:nth-child(4){
+
+        margin-top:15px;
+    }
+
+    .photo-frame{
+
+        padding:5px;
+    }
+
+    .photo-frame img{
+
+        aspect-ratio:3/4;
+    }
+
+    .photo-message{
+
+        margin-top:42px;
+
+        padding:0 12px;
+    }
+
+    .photo-message p{
+
         font-size:16px;
     }
 
+    .photo-hint{
 
-    /* -------------------------
-       FINAL
-    ------------------------- */
+        margin-top:22px;
 
-    .final-content{
-        padding:
-            20px 5px;
+        font-size:7px;
+    }
+
+
+    /* LIGHTBOX */
+
+    .lightbox-content{
+
+        width:min(400px,88vw);
+    }
+
+    .lightbox-image img{
+
+        max-height:68svh;
     }
 
 }
@@ -2192,52 +3023,33 @@ button:focus{
 
 @media(max-width:380px){
 
-    .flower-stage{
+    .photo-gallery{
 
-        width:350px;
-        height:350px;
+        gap:10px;
+
+        width:92vw;
     }
 
-    .petal{
+    .photo-heading h2{
 
-        width:50px;
-        height:98px;
-
-        transform:
-            translate(-50%,-50%)
-            rotate(var(--angle))
-            translateY(-112px);
+        font-size:35px;
     }
 
-    .petal-inner{
+    .photo-heading p{
 
-        width:50px;
-        height:98px;
+        font-size:14px;
     }
 
-    .petal::before{
+    .photo-message p{
 
-        width:62px;
-        height:94px;
-    }
-
-    .core{
-
-        width:82px;
-        height:82px;
-    }
-
-    .hero-title{
-
-        font-size:
-            clamp(37px,10vw,48px);
+        font-size:15px;
     }
 
 }
 
 
 /* =========================================================
-   REDUCE MOTION
+   REDUCIR MOVIMIENTO
 ========================================================= */
 
 @media(prefers-reduced-motion:reduce){
@@ -2248,8 +3060,7 @@ button:focus{
 
         animation-duration:.01ms !important;
 
-        animation-iteration-count:
-            1 !important;
+        animation-iteration-count:1 !important;
 
         scroll-behavior:auto !important;
     }
@@ -2259,9 +3070,20 @@ button:focus{
 </style>
 </head>
 
+
 <body>
 
+
+<!-- =========================================================
+     GRAIN
+========================================================= -->
+
 <div class="grain"></div>
+
+
+<!-- =========================================================
+     FONDO
+========================================================= -->
 
 <div class="background">
 
@@ -2270,6 +3092,7 @@ button:focus{
     <div class="background-orb"></div>
 
 </div>
+
 
 <div id="particles"></div>
 
@@ -2314,7 +3137,7 @@ button:focus{
 
 
 <!-- =========================================================
-     BARRA
+     BARRA SUPERIOR
 ========================================================= -->
 
 <div class="topbar">
@@ -2337,9 +3160,7 @@ button:focus{
      HERO
 ========================================================= -->
 
-<section
-    class="scene"
-    id="hero">
+<section class="scene" id="hero">
 
     <div>
 
@@ -2351,7 +3172,9 @@ button:focus{
 
             Hoy no quiero hablarte
             <br>
-            de lo <em>que ya pasó.</em>
+
+            de lo que
+            <em>ya pasó.</em>
 
         </h1>
 
@@ -2375,9 +3198,7 @@ button:focus{
      LOS 11
 ========================================================= -->
 
-<section
-    class="scene"
-    id="flowerScene">
+<section class="scene" id="flowerScene">
 
     <div class="flower-intro">
 
@@ -2403,138 +3224,71 @@ button:focus{
 
         <div class="petals">
 
-
-            <button
-                class="petal"
-                data-index="0"
-                aria-label="Promesa uno">
-
-                <span class="petal-inner">
+            <div class="petal" data-index="0">
+                <div class="petal-inner">
                     <span class="petal-number">I</span>
-                </span>
+                </div>
+            </div>
 
-            </button>
-
-
-            <button
-                class="petal"
-                data-index="1"
-                aria-label="Promesa dos">
-
-                <span class="petal-inner">
+            <div class="petal" data-index="1">
+                <div class="petal-inner">
                     <span class="petal-number">II</span>
-                </span>
+                </div>
+            </div>
 
-            </button>
-
-
-            <button
-                class="petal"
-                data-index="2"
-                aria-label="Promesa tres">
-
-                <span class="petal-inner">
+            <div class="petal" data-index="2">
+                <div class="petal-inner">
                     <span class="petal-number">III</span>
-                </span>
+                </div>
+            </div>
 
-            </button>
-
-
-            <button
-                class="petal"
-                data-index="3"
-                aria-label="Promesa cuatro">
-
-                <span class="petal-inner">
+            <div class="petal" data-index="3">
+                <div class="petal-inner">
                     <span class="petal-number">IV</span>
-                </span>
+                </div>
+            </div>
 
-            </button>
-
-
-            <button
-                class="petal"
-                data-index="4"
-                aria-label="Promesa cinco">
-
-                <span class="petal-inner">
+            <div class="petal" data-index="4">
+                <div class="petal-inner">
                     <span class="petal-number">V</span>
-                </span>
+                </div>
+            </div>
 
-            </button>
-
-
-            <button
-                class="petal"
-                data-index="5"
-                aria-label="Promesa seis">
-
-                <span class="petal-inner">
+            <div class="petal" data-index="5">
+                <div class="petal-inner">
                     <span class="petal-number">VI</span>
-                </span>
+                </div>
+            </div>
 
-            </button>
-
-
-            <button
-                class="petal"
-                data-index="6"
-                aria-label="Promesa siete">
-
-                <span class="petal-inner">
+            <div class="petal" data-index="6">
+                <div class="petal-inner">
                     <span class="petal-number">VII</span>
-                </span>
+                </div>
+            </div>
 
-            </button>
-
-
-            <button
-                class="petal"
-                data-index="7"
-                aria-label="Promesa ocho">
-
-                <span class="petal-inner">
+            <div class="petal" data-index="7">
+                <div class="petal-inner">
                     <span class="petal-number">VIII</span>
-                </span>
+                </div>
+            </div>
 
-            </button>
-
-
-            <button
-                class="petal"
-                data-index="8"
-                aria-label="Promesa nueve">
-
-                <span class="petal-inner">
+            <div class="petal" data-index="8">
+                <div class="petal-inner">
                     <span class="petal-number">IX</span>
-                </span>
+                </div>
+            </div>
 
-            </button>
-
-
-            <button
-                class="petal"
-                data-index="9"
-                aria-label="Promesa diez">
-
-                <span class="petal-inner">
+            <div class="petal" data-index="9">
+                <div class="petal-inner">
                     <span class="petal-number">X</span>
-                </span>
+                </div>
+            </div>
 
-            </button>
-
-
-            <button
-                class="petal"
-                data-index="10"
-                aria-label="Promesa once">
-
-                <span class="petal-inner">
+            <div class="petal" data-index="10">
+                <div class="petal-inner">
                     <span class="petal-number">XI</span>
-                </span>
-
-            </button>
-
+                </div>
+            </div>
 
         </div>
 
@@ -2550,10 +3304,7 @@ button:focus{
     </div>
 
 
-    <div
-        class="progress"
-        id="progress">
-    </div>
+    <div class="progress" id="progress"></div>
 
 
     <button
@@ -2571,9 +3322,7 @@ button:focus{
      MODAL
 ========================================================= -->
 
-<div
-    class="overlay"
-    id="overlay">
+<div class="overlay" id="overlay">
 
     <div class="modal">
 
@@ -2762,9 +3511,306 @@ button:focus{
 
         </div>
 
+
         <button
             class="continue"
-            onclick="goToEnvelope()">
+            onclick="goToPhotos()">
+
+            HAY ALGO MÁS
+
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =========================================================
+     NUEVA ESCENA · FOTOS DE AYER
+========================================================= -->
+
+<section
+    class="scene hidden"
+    id="photoScene">
+
+
+    <div class="photo-aura"></div>
+
+
+    <div class="photo-heading">
+
+        <div class="eyebrow">
+            16 · SEPTIEMBRE · 2026
+        </div>
+
+        <h2>
+
+            Hay algo de ayer
+            <br>
+
+            que quería guardar
+            <br>
+
+            <em>aquí.</em>
+
+        </h2>
+
+        <p>
+
+            Ayer tomaste unas fotos en mi teléfono.
+            Quizá para ti fueron solamente unas fotos más...
+
+            <br><br>
+
+            pero yo quise darles un lugar.
+
+        </p>
+
+    </div>
+
+
+    <!-- =====================================================
+         GALERÍA
+    ====================================================== -->
+
+    <div class="photo-gallery">
+
+
+        <!-- FOTO 1 -->
+
+        <div
+            class="photo-card"
+            onclick="openPhoto(0)">
+
+            <div class="photo-frame">
+
+                <img
+                    src="foto1.jpg"
+                    alt="Una foto de Valeria tomada el 16 de septiembre de 2026">
+
+                <div class="photo-shine"></div>
+
+                <div class="photo-number">
+                    I
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOTO 2 -->
+
+        <div
+            class="photo-card"
+            onclick="openPhoto(1)">
+
+            <div class="photo-frame">
+
+                <img
+                    src="foto2.jpg"
+                    alt="Una foto de Valeria tomada el 16 de septiembre de 2026">
+
+                <div class="photo-shine"></div>
+
+                <div class="photo-number">
+                    II
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOTO 3 -->
+
+        <div
+            class="photo-card"
+            onclick="openPhoto(2)">
+
+            <div class="photo-frame">
+
+                <img
+                    src="foto3.jpg"
+                    alt="Una foto de Valeria tomada el 16 de septiembre de 2026">
+
+                <div class="photo-shine"></div>
+
+                <div class="photo-number">
+                    III
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- FOTO 4 -->
+
+        <div
+            class="photo-card"
+            onclick="openPhoto(3)">
+
+            <div class="photo-frame">
+
+                <img
+                    src="foto4.jpg"
+                    alt="Una foto de Valeria tomada el 16 de septiembre de 2026">
+
+                <div class="photo-shine"></div>
+
+                <div class="photo-number">
+                    IV
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="photo-message">
+
+        <div class="small">
+            NO ERAN SOLAMENTE FOTOS
+        </div>
+
+        <p>
+
+            Eran cuatro pequeños momentos en los que simplemente
+            estabas siendo tú.
+
+            <br><br>
+
+            Y supongo que eso es lo que más me gusta:
+
+            <strong>
+                que incluso cuando no estás intentando
+                hacer algo especial, consigues serlo para mí.
+            </strong>
+
+        </p>
+
+        <div class="photo-hint">
+            TOCA UNA · HAY MÁS DETRÁS
+        </div>
+
+    </div>
+
+
+    <button
+        class="continue"
+        style="position:relative;z-index:5;margin-top:38px;"
+        onclick="showPhotoReveal()">
+
+        YA LAS VI TODAS
+
+    </button>
+
+</section>
+
+
+<!-- =========================================================
+     VISOR DE FOTOS
+========================================================= -->
+
+<div
+    class="photo-lightbox"
+    id="photoLightbox">
+
+    <div class="lightbox-content">
+
+        <div class="lightbox-image">
+
+            <img
+                id="lightboxImage"
+                src=""
+                alt="Fotografía">
+
+        </div>
+
+        <div
+            class="lightbox-caption"
+            id="lightboxCaption">
+
+        </div>
+
+        <button
+            class="lightbox-close"
+            onclick="closePhoto()">
+
+            VOLVER
+
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================================================
+     REVELACIÓN DESPUÉS DE LAS FOTOS
+========================================================= -->
+
+<div
+    class="photo-reveal-message"
+    id="photoRevealMessage">
+
+    <div class="photo-reveal-inner">
+
+        <div class="reveal-symbol">
+            ♥
+        </div>
+
+        <div class="eyebrow">
+            AHORA ENTIENDES POR QUÉ ESTÁN AQUÍ
+        </div>
+
+        <h2>
+
+            Porque eras tú.
+            <br>
+
+            Y eso era
+            <em>suficiente.</em>
+
+        </h2>
+
+        <p>
+
+            No quería hacer de estas fotos un recuerdo de algo
+            que ya pasó.
+
+            <br><br>
+
+            Quería guardar este pequeño instante porque sucedió
+            justo antes de nuestro día.
+
+            <br><br>
+
+            Y porque mientras preparaba todo esto pensé:
+
+            <br><br>
+
+            <strong>
+                “Ella todavía no sabe lo importante que puede
+                llegar a ser una simple foto para mí.”
+            </strong>
+
+            <br><br>
+
+            Así que ahora sí tienen un lugar.
+
+            <br>
+
+            Aquí.
+
+        </p>
+
+        <button
+            class="continue"
+            onclick="closePhotoReveal();goToEnvelope()">
 
             TODAVÍA FALTA ALGO
 
@@ -2772,7 +3818,7 @@ button:focus{
 
     </div>
 
-</section>
+</div>
 
 
 <!-- =========================================================
@@ -2809,11 +3855,13 @@ button:focus{
                 </h3>
 
                 <p>
+
                     Si llegaste hasta aquí,
                     quiero que sepas que todavía
                     hay una parte de esta sorpresa
                     que solamente puede abrirse
                     con una palabra.
+
                 </p>
 
                 <p>
@@ -2829,16 +3877,6 @@ button:focus{
             <div class="seal">
                 ♥
             </div>
-
-
-        </div>
-
-
-        <div
-            class="envelope-hint"
-            id="envelopeHint">
-
-            TOCA EL SOBRE PARA ABRIRLO
 
         </div>
 
@@ -2932,6 +3970,7 @@ button:focus{
 
         </h2>
 
+
         <div class="promise-lines">
 
             <div class="promise-line">
@@ -2965,6 +4004,7 @@ button:focus{
             </div>
 
         </div>
+
 
         <button
             class="continue"
@@ -3003,11 +4043,10 @@ button:focus{
 
             <br>
 
-            <em>
-                nuestro primer año?
-            </em>
+            <em>nuestro primer año?</em>
 
         </h2>
+
 
         <p>
 
@@ -3021,6 +4060,7 @@ button:focus{
 
         </p>
 
+
         <div class="answers">
 
             <button
@@ -3030,6 +4070,7 @@ button:focus{
                 SÍ, CONTIGO
 
             </button>
+
 
             <button
                 class="answer"
@@ -3056,9 +4097,11 @@ button:focus{
 
     <div class="final-aura"></div>
 
+
     <div class="final-content">
 
         <div class="final-heart"></div>
+
 
         <div
             class="eyebrow"
@@ -3067,6 +4110,7 @@ button:focus{
             11 MESES
 
         </div>
+
 
         <h2>
 
@@ -3080,9 +4124,13 @@ button:focus{
 
         </h2>
 
+
         <p>
+
             Sigamos haciendo que lo nuestro sea nuestro.
+
         </p>
+
 
         <p>
 
@@ -3092,6 +4140,7 @@ button:focus{
             nuevas formas de decirnos “te amo”.
 
         </p>
+
 
         <p>
 
@@ -3105,6 +4154,7 @@ button:focus{
 
         </p>
 
+
         <p>
 
             <strong>
@@ -3112,6 +4162,7 @@ button:focus{
             </strong>
 
         </p>
+
 
         <div class="final-names">
 
@@ -3123,7 +4174,9 @@ button:focus{
                 EL AMOR DE TU VIDA
             </span>
 
+
             <br>
+
 
             <strong>
                 VALERIA PETRO VILLAZÓN
@@ -3145,6 +4198,7 @@ button:focus{
 
 <script>
 
+
 /* =========================================================
    PARTICULAS
 ========================================================= */
@@ -3155,10 +4209,9 @@ document.getElementById("particles");
 for(let i=0;i<110;i++){
 
     const particle =
-    document.createElement("div");
+        document.createElement("div");
 
-    particle.className =
-        "particle";
+    particle.className="particle";
 
     particle.style.left =
         Math.random()*100+"%";
@@ -3181,14 +4234,12 @@ for(let i=0;i<110;i++){
         ((Math.random()-.5)*180)+"px"
     );
 
-    particleBox.appendChild(
-        particle
-    );
+    particleBox.appendChild(particle);
 }
 
 
 /* =========================================================
-   PROGRESO
+   PROGRESO DE LOS 11
 ========================================================= */
 
 const progress =
@@ -3197,114 +4248,151 @@ document.getElementById("progress");
 for(let i=0;i<11;i++){
 
     const dot =
-    document.createElement("span");
+        document.createElement("span");
 
     dot.dataset.index=i;
 
-    progress.appendChild(
-        dot
-    );
+    progress.appendChild(dot);
 }
 
 
 /* =========================================================
-   CONTENIDO
+   CONTENIDO DE LOS 11 PÉTALOS
 ========================================================= */
 
 const promises=[
 
 {
-title:"Elegirte",
+    title:"Elegirte",
 
-text:
-"Porque quiero que sepas que amarte no es solamente algo que siento. También es una decisión que quiero seguir tomando cada día, incluso en las cosas pequeñas."
+    text:
+    "Porque quiero que sepas que amarte no es solamente algo que siento. También es una decisión que quiero seguir tomando cada día, incluso en las cosas pequeñas."
 },
 
 {
-title:"Cuidarte",
+    title:"Cuidarte",
 
-text:
-"Quiero ser una persona con la que puedas sentirte tranquila. Alguien que quiera verte bien, que quiera verte sonreír y que disfrute poder hacer algo bonito por ti."
+    text:
+    "Quiero ser una persona con la que puedas sentirte tranquila. Alguien que quiera verte bien, que quiera verte sonreír y que disfrute poder hacer algo bonito por ti."
 },
 
 {
-title:"Admirarte",
+    title:"Admirarte",
 
-text:
-"Quiero seguir descubriendo todas esas cosas que te hacen ser tú. Tus detalles, tu manera de pensar, tus gestos y esas pequeñas partes de ti que quizá ni siquiera sabes cuánto admiro."
+    text:
+    "Quiero seguir descubriendo todas esas cosas que te hacen ser tú. Tus detalles, tu manera de pensar, tus gestos y esas pequeñas partes de ti que quizá ni siquiera sabes cuánto admiro."
 },
 
 {
-title:"Hacerte sonreír",
+    title:"Hacerte sonreír",
 
-text:
-"Quiero seguir inventando razones para que aparezca esa sonrisa tuya que tanto me gusta. A veces será algo grande y otras veces será una tontería, pero quiero seguir intentándolo."
+    text:
+    "Quiero seguir inventando razones para que aparezca esa sonrisa tuya que tanto me gusta. A veces será algo grande y otras veces será una tontería, pero quiero seguir intentándolo."
 },
 
 {
-title:"Aprender contigo",
+    title:"Aprender contigo",
 
-text:
-"Todavía tengo muchísimo que aprender de ti. Y una de las cosas bonitas de estar contigo es saber que después de once meses todavía quedan partes de tu mundo que quiero conocer."
+    text:
+    "Todavía tengo muchísimo que aprender de ti. Y una de las cosas bonitas de estar contigo es saber que después de once meses todavía quedan partes de tu mundo que quiero conocer."
 },
 
 {
-title:"Abrazarte",
+    title:"Abrazarte",
 
-text:
-"Quiero seguir siendo ese abrazo que no necesita demasiadas palabras. Ese momento en el que puedas simplemente respirar y sentirte querida."
+    text:
+    "Quiero seguir siendo ese abrazo que no necesita demasiadas palabras. Ese momento en el que puedas simplemente respirar y sentirte querida."
 },
 
 {
-title:"Celebrarte",
+    title:"Celebrarte",
 
-text:
-"Quiero celebrar tus sueños, tus logros y esas pequeñas cosas que te hacen feliz. Quiero que sepas que tus alegrías también pueden convertirse en alegrías para mí."
+    text:
+    "Quiero celebrar tus sueños, tus logros y esas pequeñas cosas que te hacen feliz. Quiero que sepas que tus alegrías también pueden convertirse en alegrías para mí."
 },
 
 {
-title:"Sorprenderte",
+    title:"Sorprenderte",
 
-text:
-"Quiero seguir haciendo cosas que te hagan pensar: “¿cómo se le ocurrió esto?”. Porque me encanta preparar cosas para ti que solamente tengan sentido porque eres tú."
+    text:
+    "Quiero seguir haciendo cosas que te hagan pensar: “¿cómo se le ocurrió esto?”. Porque me encanta preparar cosas para ti que solamente tengan sentido porque eres tú."
 },
 
 {
-title:"Crecer contigo",
+    title:"Crecer contigo",
 
-text:
-"No quiero que los meses simplemente pasen. Quiero que mientras pasan nosotros también aprendamos, maduremos y construyamos algo que cada vez se sienta más nuestro."
+    text:
+    "No quiero que los meses simplemente pasen. Quiero que mientras pasan nosotros también aprendamos, maduremos y construyamos algo que cada vez se sienta más nuestro."
 },
 
 {
-title:"Descubrirte",
+    title:"Descubrirte",
 
-text:
-"Quiero seguir conociendo nuevas versiones de ti. Porque once meses después todavía me emocionan todas esas cosas que todavía no sé de ti."
+    text:
+    "Quiero seguir conociendo nuevas versiones de ti. Porque once meses después todavía me emocionan todas esas cosas que todavía no sé de ti."
 },
 
 {
-title:"Amarte",
+    title:"Amarte",
 
-text:
-"Y después de todo lo demás siempre queda lo más sencillo: te amo. Y quiero que ese amor no se quede solamente en palabras, sino que aparezca en la forma en la que te trato, te cuido y te elijo."
+    text:
+    "Y después de todo lo demás siempre queda lo más sencillo: te amo. Y quiero que ese amor no se quede solamente en palabras, sino que aparezca en la forma en la que te trato, te cuido y te elijo."
 }
 
 ];
 
 
 const roman=[
-"I",
-"II",
-"III",
-"IV",
-"V",
-"VI",
-"VII",
-"VIII",
-"IX",
-"X",
-"XI"
+
+    "I",
+    "II",
+    "III",
+    "IV",
+    "V",
+    "VI",
+    "VII",
+    "VIII",
+    "IX",
+    "X",
+    "XI"
+
+];
+
+
+/* =========================================================
+   FOTOS
+========================================================= */
+
+const photoData=[
+
+{
+    src:"foto1.jpg",
+
+    caption:
+    "Quizá tú solamente viste una cámara. Yo vi otra razón para quedarme mirándote."
+},
+
+{
+    src:"foto2.jpg",
+
+    caption:
+    "Hay algo bonito en verte siendo tú sin saber todo lo que provocas en mí."
+},
+
+{
+    src:"foto3.jpg",
+
+    caption:
+    "Esta también quería guardarla. Porque me gusta tener pequeños pedacitos de ti cerca."
+},
+
+{
+    src:"foto4.jpg",
+
+    caption:
+    "Y esta última... simplemente me hizo pensar en lo afortunado que me siento de poder llamarte mi amor."
+}
+
 ];
 
 
@@ -3317,6 +4405,7 @@ function startExperience(){
     document
         .getElementById("intro")
         .classList.add("hide");
+
 
     setTimeout(()=>{
 
@@ -3340,52 +4429,53 @@ document
 
         petal.addEventListener(
             "click",
-            function(){
+            ()=>{
 
                 const data =
                     promises[index];
+
 
                 document
                     .getElementById("modalRoman")
                     .textContent =
                     roman[index];
 
+
                 document
                     .getElementById("modalNumber")
                     .textContent =
-                    "PROMESA "+roman[index];
+                    "UNA DE MIS PROMESAS";
+
 
                 document
                     .getElementById("modalTitle")
                     .textContent =
                     data.title;
 
+
                 document
                     .getElementById("modalText")
                     .textContent =
                     data.text;
 
+
                 document
                     .getElementById("overlay")
                     .classList.add("show");
 
-                petal
-                    .classList
-                    .add("opened");
+
+                petal.classList.add("opened");
+
 
                 document
                     .querySelectorAll(".progress span")
                     [index]
-                    .classList
-                    .add("active");
+                    .classList.add("active");
+
 
                 createTinyBurst();
 
-            },
-            {
-                passive:true
-            }
-        );
+            });
 
     });
 
@@ -3398,32 +4488,8 @@ function closeModal(){
 
     document
         .getElementById("overlay")
-        .classList
-        .remove("show");
+        .classList.remove("show");
 }
-
-
-/*
-   También permite cerrar tocando
-   fuera del contenido.
-*/
-
-document
-    .getElementById("overlay")
-    .addEventListener(
-        "click",
-        function(event){
-
-            if(
-                event.target === this
-            ){
-
-                closeModal();
-
-            }
-
-        }
-    );
 
 
 /* =========================================================
@@ -3437,44 +4503,35 @@ function createTinyBurst(){
         const p =
             document.createElement("div");
 
-        p.style.position =
-            "fixed";
+        p.style.position="fixed";
 
-        p.style.left =
-            "50%";
+        p.style.left="50%";
 
-        p.style.top =
-            "50%";
+        p.style.top="50%";
 
-        p.style.width =
-            "3px";
+        p.style.width="3px";
 
-        p.style.height =
-            "3px";
+        p.style.height="3px";
 
-        p.style.borderRadius =
-            "50%";
+        p.style.borderRadius="50%";
 
-        p.style.background =
-            "#e0bd7b";
+        p.style.background="#e0bd7b";
 
-        p.style.zIndex =
-            "1200";
+        p.style.zIndex="1200";
 
-        p.style.pointerEvents =
-            "none";
+        p.style.pointerEvents="none";
 
-        document
-            .body
-            .appendChild(p);
+
+        document.body.appendChild(p);
+
 
         const angle =
-            Math.random()
-            *Math.PI*2;
+            Math.random()*Math.PI*2;
+
 
         const distance =
-            50+
-            Math.random()*100;
+            50+Math.random()*100;
+
 
         p.animate(
 
@@ -3483,10 +4540,12 @@ function createTinyBurst(){
                 {
                     transform:
                     "translate(-50%,-50%) scale(0)",
+
                     opacity:0
                 },
 
                 {
+
                     transform:
                     `translate(
                         ${Math.cos(angle)*distance}px,
@@ -3497,6 +4556,7 @@ function createTinyBurst(){
                 },
 
                 {
+
                     transform:
                     `translate(
                         ${Math.cos(angle)*distance*1.5}px,
@@ -3509,14 +4569,19 @@ function createTinyBurst(){
             ],
 
             {
+
                 duration:900,
+
                 easing:"ease-out"
             }
 
         );
 
+
         setTimeout(()=>{
+
             p.remove();
+
         },900);
 
     }
@@ -3533,71 +4598,110 @@ function showScene(id){
     document
         .querySelectorAll(".scene")
         .forEach(scene=>{
-            scene.classList
-                .add("hidden");
+
+            scene.classList.add("hidden");
+
         });
+
 
     const target =
         document.getElementById(id);
 
-    target.classList
-        .remove("hidden");
+
+    target.classList.remove("hidden");
+
 
     window.scrollTo({
+
         top:0,
+
         behavior:"smooth"
+
     });
 }
 
 
 function afterFlower(){
 
-    showScene(
-        "cinematicScene"
-    );
+    showScene("cinematicScene");
+
 }
 
 
 function goToFuture(){
 
-    showScene(
-        "futureScene"
-    );
-}
-
-
-function goToEnvelope(){
-
-    showScene(
-        "envelopeScene"
-    );
+    showScene("futureScene");
 
 }
 
 
-function goTo365(){
+/* =========================================================
+   IR A FOTOS
+========================================================= */
 
-    showScene(
-        "numberScene"
-    );
+function goToPhotos(){
 
-}
-
-
-function goToPromise(){
-
-    showScene(
-        "promiseScene"
-    );
+    showScene("photoScene");
 
 }
 
 
-function goToQuestion(){
+/* =========================================================
+   VISOR DE FOTOS
+========================================================= */
 
-    showScene(
-        "questionScene"
-    );
+function openPhoto(index){
+
+    const data =
+        photoData[index];
+
+
+    document
+        .getElementById("lightboxImage")
+        .src =
+        data.src;
+
+
+    document
+        .getElementById("lightboxCaption")
+        .textContent =
+        data.caption;
+
+
+    document
+        .getElementById("photoLightbox")
+        .classList.add("show");
+
+}
+
+
+function closePhoto(){
+
+    document
+        .getElementById("photoLightbox")
+        .classList.remove("show");
+
+}
+
+
+/* =========================================================
+   REVELACIÓN DE LAS FOTOS
+========================================================= */
+
+function showPhotoReveal(){
+
+    document
+        .getElementById("photoRevealMessage")
+        .classList.add("show");
+
+}
+
+
+function closePhotoReveal(){
+
+    document
+        .getElementById("photoRevealMessage")
+        .classList.remove("show");
 
 }
 
@@ -3606,39 +4710,48 @@ function goToQuestion(){
    SOBRE
 ========================================================= */
 
-let envelopeOpened=false;
+function goToEnvelope(){
+
+    showScene("envelopeScene");
+
+}
+
 
 function openEnvelope(){
 
     const envelope =
-        document.getElementById(
-            "envelope"
-        );
+        document.getElementById("envelope");
 
-    if(envelopeOpened){
 
-        return;
+    envelope.classList.add("open");
 
-    }
-
-    envelopeOpened=true;
-
-    envelope
-        .classList
-        .add("open");
-
-    const hint =
-        document.getElementById(
-            "envelopeHint"
-        );
-
-    if(hint){
-
-        hint.style.opacity="0";
-
-    }
 
     createTinyBurst();
+
+}
+
+
+/* =========================================================
+   365
+========================================================= */
+
+function goTo365(){
+
+    showScene("numberScene");
+
+}
+
+
+function goToPromise(){
+
+    showScene("promiseScene");
+
+}
+
+
+function goToQuestion(){
+
+    showScene("questionScene");
 
 }
 
@@ -3649,9 +4762,7 @@ function openEnvelope(){
 
 function finish(){
 
-    showScene(
-        "finalScene"
-    );
+    showScene("finalScene");
 
     finalCelebration();
 
@@ -3665,72 +4776,79 @@ function finish(){
 function finalCelebration(){
 
     const symbols=[
+
         "♥",
         "✦",
         "·",
         "♡"
+
     ];
+
 
     for(let i=0;i<100;i++){
 
         const item =
-            document.createElement(
-                "div"
-            );
+            document.createElement("div");
+
 
         item.textContent =
             symbols[
                 Math.floor(
-                    Math.random()
-                    *symbols.length
+                    Math.random()*symbols.length
                 )
             ];
 
-        item.style.position =
-            "fixed";
+
+        item.style.position="fixed";
+
 
         item.style.left =
             Math.random()*100+"%";
 
-        item.style.bottom =
-            "-30px";
 
-        item.style.zIndex =
-            "9998";
+        item.style.bottom="-30px";
 
-        item.style.pointerEvents =
-            "none";
+
+        item.style.zIndex="9998";
+
+
+        item.style.pointerEvents="none";
+
 
         item.style.color =
             "rgba(221,183,112,.75)";
 
-        item.style.fontSize =
-            (7+Math.random()*20)
-            +"px";
 
-        document
-            .body
-            .appendChild(item);
+        item.style.fontSize =
+            (7+Math.random()*20)+"px";
+
+
+        document.body.appendChild(item);
+
 
         const duration =
-            3500+
-            Math.random()*5000;
+            3500+Math.random()*5000;
+
 
         const drift =
             (Math.random()-.5)*180;
+
 
         item.animate(
 
             [
 
                 {
+
                     transform:
                     "translate(0,0) scale(.3)",
 
                     opacity:0
+
                 },
 
                 {
+
                     transform:
                     `translate(
                         ${drift/2}px,
@@ -3738,9 +4856,11 @@ function finalCelebration(){
                     ) scale(1)`,
 
                     opacity:.75
+
                 },
 
                 {
+
                     transform:
                     `translate(
                         ${drift}px,
@@ -3748,21 +4868,27 @@ function finalCelebration(){
                     ) scale(.2)`,
 
                     opacity:0
+
                 }
 
             ],
 
             {
+
                 duration,
 
                 easing:
                 "cubic-bezier(.16,.8,.2,1)"
+
             }
 
         );
 
+
         setTimeout(()=>{
+
             item.remove();
+
         },duration);
 
     }
@@ -3772,4 +4898,4 @@ function finalCelebration(){
 </script>
 
 </body>
-   </html> 
+   </html>
